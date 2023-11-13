@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { colors } from '../../utils/colors';
 
-function Input({ label, invalid, style, textInputConfig }) {
+const Input = ({ label, invalid, style, textInputConfig }) => {
   const inputStyles = [styles.input];
 
   if (textInputConfig && textInputConfig.multiline) {
@@ -20,7 +20,7 @@ function Input({ label, invalid, style, textInputConfig }) {
       <TextInput style={inputStyles} {...textInputConfig} />
     </View>
   );
-}
+};
 
 export default Input;
 

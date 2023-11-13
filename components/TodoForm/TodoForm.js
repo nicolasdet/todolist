@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Input from './Input';
+import Input from '../UI/Input';
 import SubmitButton from './SubmitButton';
 import { TodoContext } from '../../store/todo/todo-context';
 
