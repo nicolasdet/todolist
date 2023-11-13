@@ -1,9 +1,24 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { useState } from 'react';
+import { View, StyleSheet, Pressable, Text } from 'react-native';
+import Input from '../UI/Input';
+import { isTablet } from '../../utils/deviceInfo';
 
-const AdressSearch = () => {
+const AdressSearch = ({ onSearch }) => {
+  const [Adress, setAdress] = useState('');
+
   return (
     <View style={styles.container}>
-      <Text>AdressSearch</Text>
+      <Input
+        textInputConfig={{
+          onChangeText: setAdress,
+          value: Adress,
+        }}
+        style={styles.rowInput}
+        label="Entrez une adresse"
+      />
+      <Pressable onPress={onSearch}>
+        <Text>Rechercher</Text>
+      </Pressable>
     </View>
   );
 };
@@ -15,5 +30,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    width: isTablet ? '40%' : '80%',
+  },
+  rowInput: {
+    width: '100%',
   },
 });
