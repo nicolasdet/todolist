@@ -1,4 +1,4 @@
-import { View, Pressable, Text, StyleSheet } from 'react-native';
+import { Pressable, Text, StyleSheet } from 'react-native';
 import { colors } from '../../utils/colors';
 
 const SubmitButton = ({ onPress }) => {
