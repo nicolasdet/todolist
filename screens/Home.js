@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   todoListContainer: {
-    flex: 2,
+    flex: 3,
     width: '100%',
-    backgroundColor: 'wheat',
+    backgroundColor: colors.grey,
   },
 });
