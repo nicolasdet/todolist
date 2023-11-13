@@ -2,14 +2,17 @@ import { StyleSheet, SafeAreaView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import RootNavigator from './components/navigation/RootNavigation';
+import TodoContextProvider from './store/todo/todo-context';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
-      <NavigationContainer>
-        <RootNavigator />
-      </NavigationContainer>
+      <TodoContextProvider>
+        <NavigationContainer>
+          <RootNavigator />
+        </NavigationContainer>
+      </TodoContextProvider>
     </SafeAreaView>
   );
 }

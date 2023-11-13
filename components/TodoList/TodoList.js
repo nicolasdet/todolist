@@ -1,26 +1,16 @@
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { useContext } from 'react';
+import { View, StyleSheet, FlatList } from 'react-native';
 import TodoCard from './TodoCard';
+import { TodoContext } from '../../store/todo/todo-context';
 
-const todos = [
-  {
-    id: '1',
-    title: 'Todo 1',
-  },
-  {
-    id: '2',
-    title: 'Todo 2',
-  },
-  {
-    id: '3',
-    title: 'Todo 3',
-  },
-];
 const TodoList = () => {
+  const todoCtx = useContext(TodoContext);
   return (
     <View style={styles.container}>
       <FlatList
-        data={todos}
-        renderItem={({ item }) => <TodoCard title={item.title} />}
+        data={todoCtx.todos}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <TodoCard title={item.title} id={item.id} />}
       />
     </View>
   );
