@@ -3,6 +3,12 @@ import { View, StyleSheet } from 'react-native';
 import AdressSearch from '../components/AdressSearch/AdressSearch';
 import MeteoDisplay from '../components/MeteoDisplay/MeteoDisplay';
 
+// TODO Geocoding API
+// Dynamic Meteo fetch
+// Display Meteo Information
+// Display Error
+// Use Context ?
+
 const MeteoHome = () => {
   // Refactor absolument tout ;)
   async function onSearch() {
