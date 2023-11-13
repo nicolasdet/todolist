@@ -9,9 +9,6 @@ export const TodoContext = createContext({
 });
 
 function TodoReducer(state, action) {
-  console.log('--------');
-  console.log(state);
-  console.log(action);
   switch (action.type) {
     case 'ADD':
       const id = new Date().toString() + Math.random().toString();
