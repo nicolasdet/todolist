@@ -1,4 +1,4 @@
-import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { isTablet } from '../../utils/deviceInfo';
 import { colors } from '../../utils/colors';
 
@@ -20,6 +20,5 @@ const styles = StyleSheet.create({
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'row',
   },
 });
