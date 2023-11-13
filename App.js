@@ -1,12 +1,15 @@
 import { StyleSheet, SafeAreaView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import Home from './screens/Home';
+import { NavigationContainer } from '@react-navigation/native';
+import RootNavigator from './components/navigation/RootNavigation';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <Home />
       <StatusBar style="auto" />
+      <NavigationContainer>
+        <RootNavigator />
+      </NavigationContainer>
     </SafeAreaView>
   );
 }
