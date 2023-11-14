@@ -4,7 +4,11 @@ import Input from '../UI/Input';
 import { isTablet } from '../../utils/deviceInfo';
 
 const AdressSearch = ({ onSearch }) => {
-  const [Adress, setAdress] = useState('');
+  const [Adress, setAdress] = useState('233 boulevard saint denis');
+
+  const submit = () => {
+    onSearch(Adress);
+  };
 
   return (
     <View style={styles.container}>
@@ -16,7 +20,7 @@ const AdressSearch = ({ onSearch }) => {
         style={styles.rowInput}
         label="Entrez une adresse"
       />
-      <Pressable onPress={onSearch}>
+      <Pressable onPress={submit}>
         <Text>Rechercher</Text>
       </Pressable>
     </View>

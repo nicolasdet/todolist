@@ -2,30 +2,33 @@ import { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import AdressSearch from '../components/AdressSearch/AdressSearch';
 import MeteoDisplay from '../components/MeteoDisplay/MeteoDisplay';
-
-// TODO Geocoding API
-// Dynamic Meteo fetch
-// Display Meteo Information
-// Display Error
-// Use Context ?
+import { Geocoding } from '../API/Geocoding';
+import { Meteo } from '../API/Meteo';
 
 const MeteoHome = () => {
-  // Refactor absolument tout ;)
-  async function onSearch() {
-    try {
-      const response = await fetch(
-        'https://api.open-meteo.com/v1/forecast?latitude=48.8534&longitude=2.3488&current_weather=true'
-      );
-      const data = await response.json();
-      console.log(data);
-    } catch (error) {
-      console.error(error);
+  const [MeteoData, setMeteoData] = useState();
+  const onSearchAdress = async (Adress) => {
+    // On Geocode l'adresse et on récupère les coordonnées
+    const GeocodeResult = await Geocoding(Adress);
+    if (GeocodeResult.success) {
+      // On récupère la météo
+      const { lat, lon } = GeocodeResult.data[0];
+      const MeteoResult = await Meteo(lat, lon);
+      if (MeteoResult.success) {
+        console.log(MeteoResult.data);
+        return setMeteoData(MeteoResult.data);
+      }
+      // Gestion des erreur API
+      alert('Une erreur est survenue dans la recherche de météo');
+    } else {
+      alert("Une erreur est survenue dans l'adresse");
     }
-  }
+  };
+
   return (
     <View style={styles.container}>
-      <AdressSearch onSearch={onSearch} />
-      <MeteoDisplay />
+      <AdressSearch onSearch={onSearchAdress} />
+      <MeteoDisplay MeteoData={MeteoData} />
     </View>
   );
 };

@@ -1,9 +1,13 @@
 import { View, Text, StyleSheet } from 'react-native';
 
-const MeteoDisplay = () => {
+const MeteoDisplay = ({ MeteoData }) => {
   return (
     <View style={styles.container}>
-      <Text>MeteoDisplay</Text>
+      {MeteoData ? (
+        <Text>{MeteoData.current_weather.weathercode}</Text>
+      ) : (
+        <Text>Pas de Méteo pour l'intant</Text>
+      )}
     </View>
   );
 };

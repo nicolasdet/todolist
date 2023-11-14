@@ -40,19 +40,19 @@ const RootNavigator = () => {
   return (
     <RootNavigation.Navigator screenOptions={{ headerShown: false }}>
       <RootNavigation.Screen
+        name="Todo"
+        component={TodoNavigator}
+        options={{
+          tabBarIcon: () => <FontAwesome name="list" size={24} color="black" />,
+        }}
+      />
+      <RootNavigation.Screen
         name="Meteo"
         component={MeteoNavigator}
         options={{
           tabBarIcon: () => (
             <Ionicons name="partly-sunny-sharp" size={24} color="black" />
           ),
-        }}
-      />
-      <RootNavigation.Screen
-        name="Todo"
-        component={TodoNavigator}
-        options={{
-          tabBarIcon: () => <FontAwesome name="list" size={24} color="black" />,
         }}
       />
     </RootNavigation.Navigator>
