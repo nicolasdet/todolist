@@ -14,7 +14,12 @@ const AddButton = () => {
         onPress={onPress}
         style={({ pressed }) => pressed && styles.pressed}
       >
-        <Ionicons name="ios-add-outline" size={30} color="black" />
+        <Ionicons
+          testID="Add-Icon"
+          name="ios-add-outline"
+          size={30}
+          color="black"
+        />
       </Pressable>
     </View>
   );
