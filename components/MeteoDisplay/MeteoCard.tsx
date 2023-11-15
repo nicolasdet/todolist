@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from 'react-native';
 
 const MeteoCard = () => {
   return (
-    <View style={styles.container}>
+    <View>
       <Text>MeteoCard</Text>
     </View>
   );

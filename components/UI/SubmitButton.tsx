@@ -1,6 +1,9 @@
 import { Pressable, Text, StyleSheet } from 'react-native';
 import { colors } from '../../utils/colors';
 
+interface SubmitButtonInterface {
+	onPress: () => void;
+}
 const SubmitButton = ({ onPress }) => {
   return (
     <Pressable style={StyleSheets.container} onPress={onPress}>

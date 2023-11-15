@@ -1,6 +1,10 @@
 import { View, Text, StyleSheet } from 'react-native';
 
-const MeteoDisplay = ({ MeteoData }) => {
+interface MeteoDisplayInterface {
+	MeteoData: any;
+}
+
+const MeteoDisplay = ({ MeteoData }: MeteoDisplayInterface) => {
   return (
     <View style={styles.container}>
       {MeteoData ? (

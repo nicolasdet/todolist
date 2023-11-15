@@ -1,8 +1,9 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { AddScreenNavigationProp } from '../components/navigation/NavigationTypes';
 import AddScreenHeader from '../components/AddHeader/AddScreenHeader';
-import CloseModal from '../components/AddHeader/CloseModal.js';
+import CloseModal from '../components/AddHeader/CloseModal';
 import TodoForm from '../components/TodoForm/TodoForm';
-export const AddScreen = ({ route }) => {
+export const AddScreen = ({ route }: AddScreenNavigationProp) => {
   const newsID = route.params?.id;
   const newsTitle = route.params?.title;
   const isEditing = !!newsID;

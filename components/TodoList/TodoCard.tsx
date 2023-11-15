@@ -1,13 +1,19 @@
 import { useContext } from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { RootStackNavigationProp } from '../navigation/NavigationTypes';
 import { useNavigation } from '@react-navigation/native';
 import { TodoContext } from '../../store/todo/todo-context';
 import RemoveCard from './RemoveCard';
 
-const TodoCard = ({ title, id }) => {
+interface TodoCardInterface {
+	title: string;
+	id: string;
+}
+
+const TodoCard = ({ title, id }: TodoCardInterface) => {
   const todoCtx = useContext(TodoContext);
-  const navigation = useNavigation();
-  onRemove = () => {
+  const navigation = useNavigation<RootStackNavigationProp>();
+  const onRemove = () => {
     todoCtx.deleteTodo(id);
   };
 

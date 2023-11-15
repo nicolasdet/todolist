@@ -1,5 +1,6 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator, NativeStackScreenProps  } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { RootStackParamList } from './NavigationTypes';
 // Routes
 import Home from '../../screens/Home';
 import TodoScreen from '../../screens/TodoScreen';
@@ -11,10 +12,12 @@ import { FontAwesome } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
 const RootNavigation = createBottomTabNavigator();
-const TodoStack = createNativeStackNavigator();
+const TodoStack = createNativeStackNavigator<RootStackParamList>();
 const MeteoStack = createNativeStackNavigator();
 
-const TodoNavigator = () => {
+
+
+const TodoNavigator = (): React.JSX.Element => {
   return (
     <TodoStack.Navigator screenOptions={{ headerShown: false }}>
       <TodoStack.Screen name="Home" component={Home} />
@@ -28,7 +31,7 @@ const TodoNavigator = () => {
   );
 };
 
-const MeteoNavigator = () => {
+const MeteoNavigator = (): React.JSX.Element => {
   return (
     <MeteoStack.Navigator screenOptions={{ headerShown: false }}>
       <MeteoStack.Screen name="MeteoHome" component={MeteoHome} />
@@ -36,7 +39,7 @@ const MeteoNavigator = () => {
   );
 };
 
-const RootNavigator = () => {
+const RootNavigator = (): React.JSX.Element => {
   return (
     <RootNavigation.Navigator screenOptions={{ headerShown: false }}>
       <RootNavigation.Screen

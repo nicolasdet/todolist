@@ -5,9 +5,9 @@ import MeteoDisplay from '../components/MeteoDisplay/MeteoDisplay';
 import { Geocoding } from '../API/Geocoding';
 import { Meteo } from '../API/Meteo';
 
-const MeteoHome = () => {
+const MeteoHome = (): React.JSX.Element => {
   const [MeteoData, setMeteoData] = useState();
-  const onSearchAdress = async (Adress) => {
+  const onSearchAdress = async (Adress: string) => {
     // On Geocode l'adresse et on récupère les coordonnées
     const GeocodeResult = await Geocoding(Adress);
     if (GeocodeResult.success) {

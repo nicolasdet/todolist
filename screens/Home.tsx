@@ -3,7 +3,7 @@ import Header from '../components/Header/Header';
 import TodoList from '../components/TodoList/TodoList';
 import { colors } from '../utils/colors';
 
-const Home = () => {
+const Home = (): React.JSX.Element => {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>

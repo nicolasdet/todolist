@@ -1,7 +1,10 @@
 import { View, Pressable, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-const RemoveCard = ({ onRemove }) => {
+interface RemoveCardInterface {
+	onRemove: () => void;
+}
+const RemoveCard = ({ onRemove }: RemoveCardInterface) => {
   return (
     <View style={styles.container}>
       <Pressable onPress={onRemove}>

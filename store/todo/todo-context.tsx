@@ -1,19 +1,32 @@
 import { createContext, useReducer } from 'react';
 import { INITIAL_STATE } from './initial-todos';
+import { Action, ActionType } from './Actions';
 
-export const TodoContext = createContext({
+export interface Todo {
+  id: string;
+  title: string;
+}
+
+interface TodoContextType {
+  todos: Todo[];
+  addTodo: (title: string) => void;
+  deleteTodo: (id: string) => void;
+  updateTodo: ({id, title}: Todo) => void;
+}
+
+export const TodoContext = createContext<TodoContextType>({
   todos: [],
-  addTodo: ({ title }) => {},
+  addTodo: (title) => {},
   deleteTodo: (id) => {},
-  updateTodo: (id, { title }) => {},
+  updateTodo: ({id, title}) => {},
 });
 
-function TodoReducer(state, action) {
+function TodoReducer(state: Todo[], action: Action) {
   switch (action.type) {
-    case 'ADD':
+    case ActionType.ADD:
       const id = new Date().toString() + Math.random().toString();
-      return [{ ...action.payload, id: id }, ...state];
-    case 'UPDATE':
+      return [{ title: action.payload, id: id }, ...state];
+    case ActionType.UPDATE:
       const updatableTodoIndex = state.findIndex(
         (todo) => todo.id === action.payload.id
       );
@@ -22,27 +35,26 @@ function TodoReducer(state, action) {
       const updatedTodos = [...state];
       updatedTodos[updatableTodoIndex] = updatedItem;
       return updatedTodos;
-    case 'DELETE':
+    case ActionType.DELETE:
       return state.filter((expense) => expense.id !== action.payload);
     default:
       return state;
   }
 }
 
-function TodoContextProvider({ children }) {
+const TodoContextProvider = ({ children }) => {
   const [todosState, dispatch] = useReducer(TodoReducer, INITIAL_STATE);
-  console.log(todosState);
 
-  function addTodo(todoData) {
-    dispatch({ type: 'ADD', payload: todoData });
+  const addTodo = (todoData: string) => {
+    dispatch({ type: ActionType.ADD, payload: todoData });
   }
 
-  function deleteTodo(id) {
-    dispatch({ type: 'DELETE', payload: id });
+  const deleteTodo = (id: string) => {
+    dispatch({ type: ActionType.DELETE, payload: id });
   }
 
-  function updateTodo(id, title) {
-    dispatch({ type: 'UPDATE', payload: { id: id, title: title } });
+  const updateTodo = (todoData: Todo) => {
+    dispatch({ type: ActionType.UPDATE, payload: todoData });
   }
 
   const value = {

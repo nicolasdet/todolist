@@ -1,8 +1,15 @@
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View, StyleProp, ViewStyle } from 'react-native';
 import { colors } from '../../utils/colors';
 
-const Input = ({ label, invalid, style, textInputConfig }) => {
-  const inputStyles = [styles.input];
+interface IputInterface {
+	label: string;
+	invalid?: boolean;
+	style?: any;
+	textInputConfig?: any;
+}
+
+const Input = ({ label, invalid, style, textInputConfig }: IputInterface) => {
+  const inputStyles: ViewStyle[] = [styles.input];
 
   if (textInputConfig && textInputConfig.multiline) {
     inputStyles.push(styles.inputMultiline);

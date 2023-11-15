@@ -1,6 +1,11 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ViewStyle } from 'react-native';
 
-const TitleText = ({ text, extraStyles, extraContainerStyle }) => {
+interface TitleTextProps {
+	text: string;
+	extraStyles?: ViewStyle ;
+	extraContainerStyle?: ViewStyle;
+}
+const TitleText = ({ text, extraStyles, extraContainerStyle }: TitleTextProps) => {
   return (
     <View style={[styles.container, extraContainerStyle]}>
       <Text style={[styles.textStyle, extraStyles]}>{text}</Text>
