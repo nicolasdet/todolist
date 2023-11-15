@@ -18,7 +18,7 @@ function TodoReducer(state, action) {
         (todo) => todo.id === action.payload.id
       );
       const updatableTodo = state[updatableTodoIndex];
-      const updatedItem = { ...updatableTodo, ...action.payload.data };
+      const updatedItem = { ...updatableTodo, ...action.payload };
       const updatedTodos = [...state];
       updatedTodos[updatableTodoIndex] = updatedItem;
       return updatedTodos;
@@ -41,8 +41,8 @@ function TodoContextProvider({ children }) {
     dispatch({ type: 'DELETE', payload: id });
   }
 
-  function updateTodo(id, todoData) {
-    dispatch({ type: 'UPDATE', payload: { id: id, data: todoData } });
+  function updateTodo(id, title) {
+    dispatch({ type: 'UPDATE', payload: { id: id, title: title } });
   }
 
   const value = {

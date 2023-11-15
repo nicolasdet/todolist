@@ -2,15 +2,18 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import AddScreenHeader from '../components/AddHeader/AddScreenHeader';
 import CloseModal from '../components/AddHeader/CloseModal.js';
 import TodoForm from '../components/TodoForm/TodoForm';
-export const AddScreen = () => {
+export const AddScreen = ({ route }) => {
+  const newsID = route.params?.id;
+  const newsTitle = route.params?.title;
+  const isEditing = !!newsID;
   return (
     <View style={styles.container}>
       <CloseModal />
       <View style={styles.headerContainer}>
-        <AddScreenHeader />
+        <AddScreenHeader isEditing={isEditing} />
       </View>
       <View style={styles.formContainer}>
-        <TodoForm />
+        <TodoForm isEditing={isEditing} newsID={newsID} newsTitle={newsTitle} />
       </View>
     </View>
   );

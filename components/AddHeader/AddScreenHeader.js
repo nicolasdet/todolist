@@ -2,10 +2,10 @@ import { View, Text, StyleSheet } from 'react-native';
 import { isTablet } from '../../utils/deviceInfo';
 import { colors } from '../../utils/colors';
 
-const AddScreenHeader = () => {
+const AddScreenHeader = ({ isEditing }) => {
   return (
     <View style={styles.container}>
-      <Text>Ajouter une tache</Text>
+      <Text>{isEditing ? 'Modifier une tache' : 'Ajouter une tache'}</Text>
     </View>
   );
 };

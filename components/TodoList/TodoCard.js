@@ -1,24 +1,33 @@
 import { useContext } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { TodoContext } from '../../store/todo/todo-context';
 import RemoveCard from './RemoveCard';
 
 const TodoCard = ({ title, id }) => {
   const todoCtx = useContext(TodoContext);
-  console.log(todoCtx);
+  const navigation = useNavigation();
   onRemove = () => {
     todoCtx.deleteTodo(id);
   };
 
   return (
-    <View style={styles.container}>
+    <Pressable
+      onPress={() => {
+        navigation.navigate('AddScreen', {
+          title: title,
+          id: id,
+        });
+      }}
+      style={styles.container}
+    >
       <View style={styles.titleContainer}>
         <Text>{title}</Text>
       </View>
       <View style={styles.removeContainer}>
         <RemoveCard onRemove={onRemove} />
       </View>
-    </View>
+    </Pressable>
   );
 };
 

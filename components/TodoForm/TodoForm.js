@@ -5,13 +5,13 @@ import Input from '../UI/Input';
 import SubmitButton from '../UI/SubmitButton';
 import { TodoContext } from '../../store/todo/todo-context';
 
-const TodoForm = ({ defaultValues }) => {
+const TodoForm = ({ defaultValues, isEditing, newsID, newsTitle }) => {
   const todoCtx = useContext(TodoContext);
   const navigation = useNavigation();
 
   const [inputs, setInputs] = useState({
     title: {
-      value: defaultValues ? defaultValues.title : '',
+      value: isEditing ? newsTitle : '',
       isValid: true,
     },
   });
@@ -26,11 +26,16 @@ const TodoForm = ({ defaultValues }) => {
   };
 
   const onSubmit = () => {
+    if (isEditing) {
+      todoCtx.updateTodo(newsID, inputs.title.value);
+      setInputs({ title: { value: '', isValid: true } });
+      return navigation.goBack();
+    }
     // Effectuer validation
     if (inputs.title.isValid) {
       todoCtx.addTodo({ title: inputs.title.value });
       setInputs({ title: { value: '', isValid: true } });
-      navigation.goBack();
+      return navigation.goBack();
     }
   };
   return (
