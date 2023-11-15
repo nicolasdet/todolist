@@ -1,7 +1,8 @@
 {
 	"Todo": {
 		"Header": {
-			"Title": "Liste de taches"
+			"Hello": "Bonjour Nicolas,",
+			"Title": "voici votre liste de taches"
 		}
 	}
 }

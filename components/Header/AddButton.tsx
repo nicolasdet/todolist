@@ -32,6 +32,11 @@ const styles = StyleSheet.create({
   containerStyle: {
     marginRight: 15,
     backgroundColor: 'white',
+	width: 30,
+	height: 30,
+	justifyContent: 'center',
+	alignItems: 'center',
+	borderRadius: 15,
   },
   pressed: {
     opacity: 0.4,

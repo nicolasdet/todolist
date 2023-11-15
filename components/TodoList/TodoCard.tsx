@@ -32,7 +32,7 @@ const TodoCard = ({ title, id }: TodoCardInterface) => {
         <Text>{title}</Text>
       </View>
       <View style={styles.removeContainer}>
-        <RemoveCard onRemove={onRemove} />
+        {/* <RemoveCard onRemove={onRemove} /> */}
       </View>
     </Pressable>
   );
@@ -42,22 +42,17 @@ export default TodoCard;
 
 const styles = StyleSheet.create({
   container: {
-	width: '90%',
+	width: '45%',
     height: 150,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-    borderWidth: 1,
-    borderColor: 'black',
-    marginBottom: 10,
+    borderWidth: 0.5,
+    borderColor: color.darkBlue,
+    margin: 10,
 	backgroundColor: color.grey,
-	opacity: 0.95,
+
   },
   titleContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 40,
+    marginLeft: 20,
   },
   removeContainer: {
     paddingRight: 20,

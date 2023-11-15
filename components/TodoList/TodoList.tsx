@@ -12,6 +12,7 @@ const TodoList = () => {
         data={todoCtx.todos}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <TodoCard title={item.title} id={item.id} />}
+		numColumns={2}
       />
     </View>
   );
@@ -23,7 +24,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
-    alignItems: 'center',
     marginTop: 20,
   },
 });
