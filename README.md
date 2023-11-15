@@ -1,16 +1,57 @@
-# Todolist
+# Todolist & App Meteo
+
+Project created with expo
 
 ## use
 
 `git clone https://github.com/nicolasdet/todolist.git`
+
 `cd todolist`
-`npm install`
-`npm start`
 
-## create with react-native expo
+`npm install | yarn`
 
-`npx create-expo-app AppName`
+`npm start | yarn start`
 
-## extra Librairies
+`Press w to run on web`
 
-- eslint
+## Main technologies used
+
+- React-native
+- React-navigation
+- Eslint
+- Typescript
+- Axios
+- Jest
+- React Native testing library
+
+## Todo List of Libraries
+
+- styled components
+
+## Todo List Features
+
+- [x] See List of task
+- [x] Add new task
+- [x] Delete task
+- [x] Edit task
+- [ ] Add Favorite task
+
+## Meteo App Features
+
+- [ ] Enter an adress to get the weather (Work in progress)
+- [ ] Get the weather forecast (Work in progress)
+- [ ] Get some favorite places
+
+## Global Features
+
+- [ ] onBoarding Screen with persistant storage
+- [ ] Login Screen
+- [ ] Register Screen
+- [ ] User Specific screen with a list of favorite tasks
+- [ ] User Specific screen with a list of favorite places
+
+## Global Todo
+
+- [ ] Test every components
+- [ ] Design the app
+- [ ] E2E Tests
