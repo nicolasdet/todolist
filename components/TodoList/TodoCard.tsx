@@ -4,6 +4,7 @@ import { RootStackNavigationProp } from '../navigation/NavigationTypes';
 import { useNavigation } from '@react-navigation/native';
 import { TodoContext } from '../../store/todo/todo-context';
 import RemoveCard from './RemoveCard';
+import color from '../../utils/colors';
 
 interface TodoCardInterface {
 	title: string;
@@ -41,15 +42,16 @@ export default TodoCard;
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    height: 100,
+	width: '90%',
+    height: 150,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
     borderWidth: 1,
     borderColor: 'black',
-    elevation: 5,
     marginBottom: 10,
+	backgroundColor: color.grey,
+	opacity: 0.95,
   },
   titleContainer: {
     flex: 1,

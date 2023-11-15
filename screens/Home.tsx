@@ -1,17 +1,19 @@
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ImageBackground } from 'react-native';
 import Header from '../components/Header/Header';
 import TodoList from '../components/TodoList/TodoList';
-import { colors } from '../utils/colors';
+import colors  from '../utils/colors';
 
 const Home = (): React.JSX.Element => {
   return (
     <View style={styles.container}>
-      <View style={styles.headerContainer}>
-        <Header />
-      </View>
+	<ImageBackground source={require('../assets/beach.jpg')} resizeMode="cover" style={styles.image}>
+		<View style={styles.headerContainer}>
+			<Header />
+		</View>
       <View style={styles.todoListContainer}>
         <TodoList />
       </View>
+	  </ImageBackground>
     </View>
   );
 };
@@ -26,13 +28,15 @@ const styles = StyleSheet.create({
   headerContainer: {
     flex: 1,
     width: '100%',
-    backgroundColor: colors.grey,
     justifyContent: 'center',
     alignItems: 'center',
   },
+  image: {
+    flex: 1,
+	width: '100%',
+  },
   todoListContainer: {
     flex: 3,
-    width: '100%',
-    backgroundColor: colors.grey,
+	margin: 10,
   },
 });

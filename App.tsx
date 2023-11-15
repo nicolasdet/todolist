@@ -7,14 +7,14 @@ import TodoContextProvider from './store/todo/todo-context';
 export default function App(): JSX.Element {
   return (
     <>
-      <SafeAreaView style={styles.container}>
+      {/* <SafeAreaView style={styles.container}> */}
         <StatusBar style="auto" />
         <TodoContextProvider>
           <NavigationContainer>
             <RootNavigator />
           </NavigationContainer>
         </TodoContextProvider>
-      </SafeAreaView>
+      {/* </SafeAreaView> */}
     </>
   );
 }

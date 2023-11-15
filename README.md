@@ -34,7 +34,19 @@ Project created with expo
 - [x] Add new task
 - [x] Delete task
 - [x] Edit task
+- [ ] Add text element to task
+- [ ] Add date element to task
+- [ ] Add time element to task
+- [ ] Add image element to task
+- [ ] Select different color for task
+- [ ] swipe to delete
+- [ ] Filter task by date
+- [ ] Add task order & drag and drop
+
+// Need register
+
 - [ ] Add Favorite task
+- [ ] Asign people to task ?
 
 ## Meteo App Features
 

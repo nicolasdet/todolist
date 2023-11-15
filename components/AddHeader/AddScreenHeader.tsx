@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native';
 import { isTablet } from '../../utils/deviceInfo';
-import { colors } from '../../utils/colors';
+import colors  from '../../utils/colors';
 
 interface AddScreenHeaderInterface {
 	isEditing: boolean;

@@ -3,6 +3,7 @@ import { View, StyleSheet, FlatList } from 'react-native';
 import TodoCard from './TodoCard';
 import { TodoContext } from '../../store/todo/todo-context';
 
+
 const TodoList = () => {
   const todoCtx = useContext(TodoContext);
   return (

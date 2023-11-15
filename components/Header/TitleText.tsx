@@ -23,8 +23,9 @@ const styles = StyleSheet.create({
     paddingLeft: 30,
   },
   textStyle: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: 'bold',
+	opacity: 1,
     color: 'white',
   },
 });

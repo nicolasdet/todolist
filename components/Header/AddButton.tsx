@@ -1,4 +1,4 @@
-import { View, Pressable, StyleSheet } from 'react-native';
+import { View, Pressable, StyleSheet, Text } from 'react-native';
 import { RootStackNavigationProp } from '../navigation/NavigationTypes';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';

@@ -1,5 +1,5 @@
 import { Pressable, Text, StyleSheet } from 'react-native';
-import { colors } from '../../utils/colors';
+import colors  from '../../utils/colors';
 
 interface SubmitButtonInterface {
 	onPress: () => void;

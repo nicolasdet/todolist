@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TextInput, View, StyleProp, ViewStyle } from 'react-native';
-import { colors } from '../../utils/colors';
+import colors  from '../../utils/colors';
 
 interface IputInterface {
 	label: string;
