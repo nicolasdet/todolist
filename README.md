@@ -34,9 +34,9 @@ Project created with expo
 - [x] Add new task
 - [x] Delete task
 - [x] Edit task
-- [ ] Add text element to task
-- [ ] Add date element to task
-- [ ] Add time element to task
+- [x] Add text element to task
+- [x] Add date element to task
+- [x] Add time element to task
 - [ ] Add image element to task
 - [ ] Select different color for task
 - [ ] swipe to delete
