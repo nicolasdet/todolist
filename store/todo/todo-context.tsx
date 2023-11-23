@@ -36,7 +36,7 @@ function TodoReducer(state: Todo[], action: Action) {
       updatedTodos[updatableTodoIndex] = updatedItem;
       return updatedTodos;
     case ActionType.DELETE:
-      return state.filter((expense) => expense.id !== action.payload);
+      return [...state.filter((expense) => expense.id !== action.payload)];
     default:
       return state;
   }
