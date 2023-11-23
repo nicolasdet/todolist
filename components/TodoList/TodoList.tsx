@@ -13,7 +13,7 @@ const TodoList = () => {
         data={todoCtx.todos}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <TodoCard {...item} />}
-        numColumns={1}
+        numColumns={isTablet ? 2 : 1}
       />
     </View>
   );
