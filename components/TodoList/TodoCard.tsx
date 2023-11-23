@@ -42,7 +42,7 @@ export default TodoCard;
 
 const styles = StyleSheet.create({
   container: {
-	width: '45%',
+	width: 200,
     height: 150,
     borderWidth: 0.5,
     borderColor: color.darkBlue,

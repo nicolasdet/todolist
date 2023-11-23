@@ -12,6 +12,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
 import Color from '../../utils/colors';
+import { isTablet } from '../../utils/deviceInfo';
 
 const RootNavigation = createBottomTabNavigator();
 const TodoStack = createNativeStackNavigator<RootStackParamList>();
@@ -45,7 +46,7 @@ const RootNavigator = (): React.JSX.Element => {
   return (
     <RootNavigation.Navigator screenOptions={{ 
 		headerShown: false,  
-		tabBarStyle: { height: 60 },
+		tabBarStyle: { height: isTablet ? 60 : 90 },
 		tabBarActiveBackgroundColor: Color.material, 
 		tabBarInactiveBackgroundColor: Color.material,
 		tabBarLabelStyle: {

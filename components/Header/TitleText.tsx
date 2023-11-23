@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet, ViewStyle } from 'react-native';
+import colors  from '../../utils/colors';
 
 interface TitleTextProps {
 	text: string;
@@ -20,9 +21,9 @@ const styles = StyleSheet.create({
     paddingLeft: 30,
   },
   textStyle: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
 	opacity: 1,
-    color: 'white',
+    color: colors.darkBlue,
   },
 });

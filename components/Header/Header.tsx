@@ -2,7 +2,6 @@ import { View, StyleSheet } from 'react-native';
 import AppText from '../../utils/Text.json';
 import colors  from '../../utils/colors';
 import { isTablet } from '../../utils/deviceInfo';
-import AddButton from './AddButton';
 import TitleText from './TitleText';
 
 const Header = () => {
@@ -12,7 +11,6 @@ const Header = () => {
       		<TitleText text={AppText.Todo.Header.Title} />
 	  		<TitleText text={AppText.Todo.Header.Hello} />
 		</View>
-	  <AddButton />
     </View>
   );
 };
