@@ -2,8 +2,8 @@ import { useContext } from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import TodoCard from './TodoCard';
 import { TodoContext } from '../../store/todo/todo-context';
+import { Todo } from '../../store/todo/todo-context';
 import { isTablet } from '../../utils/deviceInfo';
-
 
 const TodoList = () => {
   const todoCtx = useContext(TodoContext);
@@ -12,8 +12,8 @@ const TodoList = () => {
       <FlatList
         data={todoCtx.todos}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <TodoCard title={item.title} id={item.id} />}
-		numColumns={1}
+        renderItem={({ item }) => <TodoCard {...item} />}
+        numColumns={1}
       />
     </View>
   );

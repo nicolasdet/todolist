@@ -3,15 +3,15 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { RootStackNavigationProp } from '../navigation/NavigationTypes';
 import { useNavigation } from '@react-navigation/native';
 import { TodoContext } from '../../store/todo/todo-context';
+import { Todo } from '../../store/todo/todo-context';
 import RemoveCard from './RemoveCard';
+import DateElement from './DateElement';
+import TitleElement from './TitleElement';
+import ContentElement from './ContentElement';
 import color from '../../utils/colors';
 
-interface TodoCardInterface {
-	title: string;
-	id: string;
-}
-
-const TodoCard = ({ title, id }: TodoCardInterface) => {
+const TodoCard = (item: Todo) => {
+  const { title, id, content, date } = item;
   const todoCtx = useContext(TodoContext);
   const navigation = useNavigation<RootStackNavigationProp>();
   const onRemove = () => {
@@ -29,8 +29,13 @@ const TodoCard = ({ title, id }: TodoCardInterface) => {
       style={styles.container}
     >
       <View style={styles.titleContainer}>
-        <Text>{title}</Text>
+        <View style={styles.CardHeader}>
+          <TitleElement title={title} />
+          <DateElement date={date} />
+        </View>
+        <ContentElement content={content} />
       </View>
+
       <View style={styles.removeContainer}>
         {/* <RemoveCard onRemove={onRemove} /> */}
       </View>
@@ -42,17 +47,22 @@ export default TodoCard;
 
 const styles = StyleSheet.create({
   container: {
-	width: 200,
-    height: 150,
+    width: 300,
     borderWidth: 0.5,
     borderColor: color.darkBlue,
     margin: 10,
-	backgroundColor: color.grey,
-
+    padding: 10,
+    backgroundColor: color.grey,
+  },
+  CardHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
   },
   titleContainer: {
     flex: 1,
-    marginLeft: 20,
+    marginLeft: 10,
   },
   removeContainer: {
     paddingRight: 20,
