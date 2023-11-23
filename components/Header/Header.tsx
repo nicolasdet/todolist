@@ -3,6 +3,7 @@ import AppText from '../../utils/Text.json';
 import colors from '../../utils/colors';
 import { isTablet } from '../../utils/deviceInfo';
 import TitleText from './TitleText';
+import { BasicShadow } from '../../utils/shadow';
 
 const Header = () => {
   return (
@@ -26,6 +27,7 @@ const styles = StyleSheet.create({
     backgroundColor: isTablet ? 'transparent' : colors.material,
     margin: isTablet ? 0 : 10,
     borderRadius: 10,
-    opacity: 0.8,
+    opacity: 0.85,
+    ...BasicShadow,
   },
 });

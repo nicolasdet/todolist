@@ -3,6 +3,8 @@ import { RootStackNavigationProp } from '../navigation/NavigationTypes';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import Color from '../../utils/colors';
+import { BasicShadow } from '../../utils/shadow';
+import { isTablet } from '../../utils/deviceInfo';
 
 const AddButton = () => {
   const navigation = useNavigation<RootStackNavigationProp>();
@@ -15,7 +17,7 @@ const AddButton = () => {
       <Pressable
         onPress={onPress}
         style={({ pressed }) => pressed && styles.pressed}
-		hitSlop={{ top: 30, bottom: 30, left: 30, right: 30 }}
+        hitSlop={{ top: 30, bottom: 30, left: 30, right: 30 }}
       >
         <Ionicons
           testID="Add-Icon"
@@ -32,15 +34,16 @@ export default AddButton;
 
 const styles = StyleSheet.create({
   containerStyle: {
-	position: 'absolute',
-	bottom: 30,
-	right: 30,
+    position: 'absolute',
+    bottom: 30,
+    right: isTablet ? 30 : 10,
     backgroundColor: Color.material,
-	width: 80,
-	height: 80,
-	justifyContent: 'center',
-	alignItems: 'center',
-	borderRadius: 40,
+    width: 80,
+    height: 80,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 40,
+    ...BasicShadow,
   },
   pressed: {
     opacity: 0.4,

@@ -9,6 +9,7 @@ import DateElement from './DateElement';
 import TitleElement from './TitleElement';
 import ContentElement from './ContentElement';
 import color from '../../utils/colors';
+import { BasicShadow } from '../../utils/shadow';
 
 const TodoCard = (item: Todo) => {
   const { title, id, content, date } = item;
@@ -26,7 +27,9 @@ const TodoCard = (item: Todo) => {
           id: id,
         });
       }}
-      style={styles.container}
+      style={({ pressed }) =>
+        pressed ? [styles.container, { opacity: 0.5 }] : styles.container
+      }
     >
       <View style={styles.titleContainer}>
         <View style={styles.CardHeader}>
@@ -48,11 +51,12 @@ export default TodoCard;
 const styles = StyleSheet.create({
   container: {
     width: 300,
-    borderWidth: 0.5,
+    borderWidth: 0.1,
     borderColor: color.darkBlue,
     margin: 10,
     padding: 10,
     backgroundColor: color.grey,
+    ...BasicShadow,
   },
   CardHeader: {
     flexDirection: 'row',
