@@ -2,6 +2,7 @@ import { View, Pressable, StyleSheet, Text } from 'react-native';
 import { RootStackNavigationProp } from '../navigation/NavigationTypes';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import Color from '../../utils/colors';
 
 const AddButton = () => {
   const navigation = useNavigation<RootStackNavigationProp>();
@@ -14,11 +15,12 @@ const AddButton = () => {
       <Pressable
         onPress={onPress}
         style={({ pressed }) => pressed && styles.pressed}
+		hitSlop={{ top: 30, bottom: 30, left: 30, right: 30 }}
       >
         <Ionicons
           testID="Add-Icon"
           name="ios-add-outline"
-          size={30}
+          size={32}
           color="black"
         />
       </Pressable>
@@ -30,13 +32,15 @@ export default AddButton;
 
 const styles = StyleSheet.create({
   containerStyle: {
-    marginRight: 15,
-    backgroundColor: 'white',
-	width: 30,
-	height: 30,
+	position: 'absolute',
+	bottom: 30,
+	right: 30,
+    backgroundColor: Color.material,
+	width: 80,
+	height: 80,
 	justifyContent: 'center',
 	alignItems: 'center',
-	borderRadius: 15,
+	borderRadius: 40,
   },
   pressed: {
     opacity: 0.4,
