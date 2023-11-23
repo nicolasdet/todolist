@@ -1,7 +1,6 @@
 import { View, StyleSheet, ImageBackground } from 'react-native';
 import Header from '../components/Header/Header';
 import TodoList from '../components/TodoList/TodoList';
-import colors from '../utils/colors';
 import { isTablet } from '../utils/deviceInfo';
 import AddButton from '../components/AddButton/AddButton';
 

@@ -14,7 +14,12 @@ export const AddScreen = ({ route }: AddScreenNavigationProp) => {
         <AddScreenHeader isEditing={isEditing} />
       </View>
       <View style={styles.formContainer}>
-        <TodoForm isEditing={isEditing} newsID={newsID} newsTitle={newsTitle} />
+        <TodoForm
+          isEditing={isEditing}
+          newsID={newsID}
+          newsTitle={newsTitle}
+          key={newsID}
+        />
       </View>
     </View>
   );
@@ -25,18 +30,18 @@ export default AddScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: '100%',
     backgroundColor: '#fff',
     alignItems: 'center',
   },
   headerContainer: {
     width: '100%',
-    flex: 1,
     alignItems: 'center',
   },
   formContainer: {
+    flex: 1,
     width: '100%',
-    flex: 3,
     alignItems: 'center',
-    paddingTop: 20,
+    justifyContent: 'flex-start',
   },
 });

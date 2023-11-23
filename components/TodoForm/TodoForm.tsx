@@ -7,7 +7,7 @@ import { TodoContext } from '../../store/todo/todo-context';
 
 interface TodoFormProps {
   defaultValues?: {
-    title: string,
+    title: string;
   };
   isEditing?: boolean;
   newsID?: string;
@@ -28,6 +28,10 @@ const TodoForm = ({
       value: isEditing ? newsTitle : '',
       isValid: true,
     },
+    content: {
+      value: '',
+      isValid: true,
+    },
   });
 
   const inputChangedHandler = (inputIdentifier, enteredValue) => {
@@ -46,13 +50,13 @@ const TodoForm = ({
         title: inputs.title.value,
       };
       todoCtx.updateTodo(updatedNews);
-      setInputs({ title: { value: '', isValid: true } });
+      setInputs({ ...inputs, title: { value: '', isValid: true } });
       return navigation.goBack();
     }
     // Effectuer validation
     if (inputs.title.isValid) {
       todoCtx.addTodo(inputs.title.value);
-      setInputs({ title: { value: '', isValid: true } });
+      setInputs({ ...inputs, title: { value: '', isValid: true } });
       return navigation.goBack();
     }
   };
@@ -67,6 +71,17 @@ const TodoForm = ({
           value: inputs.title.value,
         }}
       />
+
+      <Input
+        style={styles.rowInput}
+        label="Contenu : "
+        invalid={!inputs.title.isValid}
+        textInputConfig={{
+          onChangeText: inputChangedHandler.bind(this, 'title'),
+          value: inputs.title.value,
+          multiline: true,
+        }}
+      />
       <SubmitButton onPress={onSubmit} />
     </View>
   );
@@ -77,11 +92,11 @@ export default TodoForm;
 const styles = StyleSheet.create({
   rowInput: {
     width: '100%',
-    flex: 1,
   },
   container: {
     width: '80%',
     flex: 1,
     alignItems: 'center',
+    marginTop: 20,
   },
 });
