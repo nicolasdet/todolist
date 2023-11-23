@@ -1,12 +1,16 @@
 import { View, Text, StyleSheet, ViewStyle } from 'react-native';
-import colors  from '../../utils/colors';
+import colors from '../../utils/colors';
 
 interface TitleTextProps {
-	text: string;
-	extraStyles?: ViewStyle ;
-	extraContainerStyle?: ViewStyle;
+  text: string;
+  extraStyles?: ViewStyle;
+  extraContainerStyle?: ViewStyle;
 }
-const TitleText = ({ text, extraStyles, extraContainerStyle }: TitleTextProps) => {
+const TitleText = ({
+  text,
+  extraStyles,
+  extraContainerStyle,
+}: TitleTextProps) => {
   return (
     <View style={[styles.container, extraContainerStyle]}>
       <Text style={[styles.textStyle, extraStyles]}>{text}</Text>
@@ -21,9 +25,9 @@ const styles = StyleSheet.create({
     paddingLeft: 30,
   },
   textStyle: {
-    fontSize: 28,
+    fontSize: 20,
     fontWeight: 'bold',
-	opacity: 1,
+    opacity: 1,
     color: colors.darkBlue,
   },
 });
