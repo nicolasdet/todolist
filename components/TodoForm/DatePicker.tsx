@@ -35,7 +35,7 @@ const DatePicker = ({ updateDate, dateToDisplay }) => {
         <DateTimePicker
           testID="dateTimePicker"
           value={date}
-          mode={Platform.OS === 'ios' ? mode : 'date'}
+          //mode={Platform.OS === 'ios' ? mode : 'date'}
           is24Hour={true}
           onChange={onChange}
         />
