@@ -28,6 +28,10 @@ Project created with expo
 
 - styled components
 
+## refactor
+
+- [ ] inprouve type for todo-context / remove partials types
+
 ## Todo List Features
 
 - [x] See List of task
@@ -39,6 +43,7 @@ Project created with expo
 - [x] Add time element to task
 - [ ] Add image element to task
 - [ ] Select different color for task
+- [ ] Add notifiable to task
 - [ ] swipe to delete
 - [ ] Filter task by date
 - [ ] Add task order & drag and drop

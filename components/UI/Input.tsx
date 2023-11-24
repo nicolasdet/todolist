@@ -1,11 +1,18 @@
-import { StyleSheet, Text, TextInput, View, StyleProp, ViewStyle } from 'react-native';
-import colors  from '../../utils/colors';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  StyleProp,
+  ViewStyle,
+} from 'react-native';
+import colors from '../../utils/colors';
 
 interface IputInterface {
-	label: string;
-	invalid?: boolean;
-	style?: any;
-	textInputConfig?: any;
+  label: string;
+  invalid?: boolean;
+  style?: any;
+  textInputConfig?: any;
 }
 
 const Input = ({ label, invalid, style, textInputConfig }: IputInterface) => {
@@ -34,7 +41,6 @@ export default Input;
 const styles = StyleSheet.create({
   inputContainer: {
     marginHorizontal: 4,
-    marginVertical: 8,
   },
   label: {
     fontSize: 12,

@@ -11,7 +11,7 @@ const CloseModal = () => {
   return (
     <View style={styles.container}>
       <Pressable onPress={onPress}>
-        <Ionicons name="ios-close-sharp" size={24} color="black" />
+        <Ionicons name="ios-close-sharp" size={42} color="black" />
       </Pressable>
     </View>
   );

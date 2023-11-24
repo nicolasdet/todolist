@@ -3,11 +3,12 @@ import type {
   NativeStackNavigationProp,
 } from '@react-navigation/native-stack';
 import type { CompositeScreenProps } from '@react-navigation/native';
+import { Todo } from '../../store/todo/todo-context';
 
 export type RootStackParamList = {
   Home: undefined;
   TodoScreen: undefined;
-  AddScreen: { id?: string; title?: string } | undefined;
+  AddScreen: { id?: string; todo?: Todo } | undefined;
 };
 
 export type HomeScreenNavigationProp = NativeStackScreenProps<

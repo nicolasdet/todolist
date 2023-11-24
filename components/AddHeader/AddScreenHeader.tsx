@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from 'react-native';
 import { isTablet } from '../../utils/deviceInfo';
-import colors  from '../../utils/colors';
+import colors from '../../utils/colors';
 
 interface AddScreenHeaderInterface {
-	isEditing: boolean;
+  isEditing: boolean;
 }
 
 const AddScreenHeader = ({ isEditing }: AddScreenHeaderInterface) => {
@@ -19,7 +19,7 @@ export default AddScreenHeader;
 const styles = StyleSheet.create({
   container: {
     width: isTablet ? '60%' : '80%',
-    backgroundColor: colors.blue,
+    backgroundColor: colors.material,
     marginTop: 70,
     height: 50,
     justifyContent: 'center',
