@@ -28,6 +28,10 @@ Project created with expo
 
 - styled components
 
+## refactor
+
+- [ ] inprouve type for todo-context / remove partials types
+
 ## Todo List Features
 
 - [x] See List of task
