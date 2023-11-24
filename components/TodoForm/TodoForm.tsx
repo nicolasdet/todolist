@@ -3,6 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Input from '../UI/Input';
 import SubmitButton from '../UI/SubmitButton';
+import Color from '../../utils/colors';
 import { TodoContext } from '../../store/todo/todo-context';
 import { Todo } from '../../store/todo/todo-context';
 import DatePicker from './DatePicker';
@@ -50,6 +51,11 @@ const TodoForm = ({
         [inputIdentifier]: { value: enteredValue, isValid: true },
       };
     });
+  };
+
+  const onRemove = () => {
+    todoCtx.deleteTodo(todoID);
+    navigation.goBack();
   };
 
   const onSubmit = () => {
@@ -102,6 +108,11 @@ const TodoForm = ({
         }}
       />
       <SubmitButton onPress={onSubmit} />
+      <SubmitButton
+        onPress={onRemove}
+        label="Supprimer"
+        extraStyles={styles.removeButtonStyle}
+      />
     </View>
   );
 };
@@ -117,5 +128,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     marginTop: 20,
+  },
+  removeButtonStyle: {
+    backgroundColor: Color.orange,
+    marginVertical: 5,
   },
 });

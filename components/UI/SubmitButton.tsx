@@ -1,13 +1,19 @@
 import { Pressable, Text, StyleSheet } from 'react-native';
-import colors  from '../../utils/colors';
+import colors from '../../utils/colors';
 
 interface SubmitButtonInterface {
-	onPress: () => void;
+  onPress: () => void;
+  label?: string;
+  extraStyles?: object;
 }
-const SubmitButton = ({ onPress }) => {
+const SubmitButton = ({
+  onPress,
+  label = 'valider',
+  extraStyles,
+}: SubmitButtonInterface) => {
   return (
-    <Pressable style={StyleSheets.container} onPress={onPress}>
-      <Text>valider</Text>
+    <Pressable style={[StyleSheets.container, extraStyles]} onPress={onPress}>
+      <Text>{label}</Text>
     </Pressable>
   );
 };
