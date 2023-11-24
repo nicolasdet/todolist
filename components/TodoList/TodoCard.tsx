@@ -23,7 +23,7 @@ const TodoCard = (item: Todo) => {
     <Pressable
       onPress={() => {
         navigation.navigate('AddScreen', {
-          title: title,
+          todo: item,
           id: id,
         });
       }}

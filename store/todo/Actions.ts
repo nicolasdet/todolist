@@ -8,12 +8,12 @@ export enum ActionType {
 
 interface addTodoAction {
   type: ActionType.ADD;
-  payload: string;
+  payload: Partial<Todo>;
 }
 
 interface updateTodoAction {
   type: ActionType.UPDATE;
-  payload: Todo;
+  payload: Partial<Todo>;
 }
 
 interface deleteAction {

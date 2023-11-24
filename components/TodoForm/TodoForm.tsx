@@ -4,37 +4,43 @@ import { useNavigation } from '@react-navigation/native';
 import Input from '../UI/Input';
 import SubmitButton from '../UI/SubmitButton';
 import { TodoContext } from '../../store/todo/todo-context';
+import { Todo } from '../../store/todo/todo-context';
+import DatePicker from './DatePicker';
 
 interface TodoFormProps {
   defaultValues?: {
     title: string;
   };
   isEditing?: boolean;
-  newsID?: string;
-  newsTitle?: string;
+  todoID?: string;
+  todo?: Todo;
 }
 
 const TodoForm = ({
   defaultValues,
   isEditing,
-  newsID,
-  newsTitle,
+  todoID,
+  todo,
 }: TodoFormProps) => {
   const todoCtx = useContext(TodoContext);
   const navigation = useNavigation();
 
   const [inputs, setInputs] = useState({
     title: {
-      value: isEditing ? newsTitle : '',
+      value: isEditing ? todo.title : '',
       isValid: true,
     },
     content: {
-      value: '',
+      value: isEditing ? todo.content : '',
       isValid: true,
     },
   });
 
-  const inputChangedHandler = (inputIdentifier, enteredValue) => {
+  const inputChangedHandler = (
+    inputIdentifier: string,
+    enteredValue: string
+  ) => {
+    console.log(inputIdentifier);
     setInputs((curInputs) => {
       return {
         ...curInputs,
@@ -46,8 +52,9 @@ const TodoForm = ({
   const onSubmit = () => {
     if (isEditing) {
       const updatedNews = {
-        id: newsID,
+        id: todoID,
         title: inputs.title.value,
+        content: inputs.content.value,
       };
       todoCtx.updateTodo(updatedNews);
       setInputs({ ...inputs, title: { value: '', isValid: true } });
@@ -55,13 +62,17 @@ const TodoForm = ({
     }
     // Effectuer validation
     if (inputs.title.isValid) {
-      todoCtx.addTodo(inputs.title.value);
+      todoCtx.addTodo({
+        title: inputs.title.value,
+        content: inputs.content.value,
+      });
       setInputs({ ...inputs, title: { value: '', isValid: true } });
       return navigation.goBack();
     }
   };
   return (
     <View style={styles.container}>
+      <DatePicker />
       <Input
         style={styles.rowInput}
         label="Tache : "
@@ -75,10 +86,10 @@ const TodoForm = ({
       <Input
         style={styles.rowInput}
         label="Contenu : "
-        invalid={!inputs.title.isValid}
+        invalid={!inputs.content.isValid}
         textInputConfig={{
-          onChangeText: inputChangedHandler.bind(this, 'title'),
-          value: inputs.title.value,
+          onChangeText: inputChangedHandler.bind(this, 'content'),
+          value: inputs.content.value,
           multiline: true,
         }}
       />
