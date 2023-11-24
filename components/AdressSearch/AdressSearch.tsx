@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { View, StyleSheet, Pressable, Text } from 'react-native';
 import Input from '../UI/Input';
 import { isTablet } from '../../utils/deviceInfo';
+import Color from '../../utils/colors';
 
 const AdressSearch = ({ onSearch }) => {
   const [Adress, setAdress] = useState('233 boulevard saint denis');
@@ -31,10 +32,13 @@ export default AdressSearch;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    width: isTablet ? '40%' : '80%',
+    width: isTablet ? '60%' : '80%',
+    backgroundColor: Color.material,
+    borderRadius: 10,
+    padding: 20,
+    marginTop: 30,
   },
   rowInput: {
     width: '100%',
