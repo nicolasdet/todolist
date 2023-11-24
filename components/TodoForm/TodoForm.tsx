@@ -34,13 +34,16 @@ const TodoForm = ({
       value: isEditing ? todo.content : '',
       isValid: true,
     },
+    date: {
+      value: isEditing ? todo.date : new Date().toISOString().slice(0, 10),
+      isValid: true,
+    },
   });
 
   const inputChangedHandler = (
     inputIdentifier: string,
     enteredValue: string
   ) => {
-    console.log(inputIdentifier);
     setInputs((curInputs) => {
       return {
         ...curInputs,
@@ -55,6 +58,7 @@ const TodoForm = ({
         id: todoID,
         title: inputs.title.value,
         content: inputs.content.value,
+        date: inputs.date.value,
       };
       todoCtx.updateTodo(updatedNews);
       setInputs({ ...inputs, title: { value: '', isValid: true } });
@@ -65,6 +69,7 @@ const TodoForm = ({
       todoCtx.addTodo({
         title: inputs.title.value,
         content: inputs.content.value,
+        date: inputs.date.value,
       });
       setInputs({ ...inputs, title: { value: '', isValid: true } });
       return navigation.goBack();
@@ -72,7 +77,10 @@ const TodoForm = ({
   };
   return (
     <View style={styles.container}>
-      <DatePicker />
+      <DatePicker
+        updateDate={inputChangedHandler}
+        dateToDisplay={inputs.date.value}
+      />
       <Input
         style={styles.rowInput}
         label="Tache : "

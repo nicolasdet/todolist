@@ -4,14 +4,15 @@ import DateTimePicker, {
   DateTimePickerAndroid,
 } from '@react-native-community/datetimepicker';
 
-const DatePicker = () => {
-  const [date, setDate] = useState(new Date());
+const DatePicker = ({ updateDate, dateToDisplay }) => {
+  const [date, setDate] = useState(new Date(dateToDisplay));
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(true);
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate;
     setDate(currentDate);
+    updateDate('date', currentDate.toISOString().slice(0, 10));
   };
 
   const showMode = (currentMode) => {
@@ -26,8 +27,6 @@ const DatePicker = () => {
   const showTimepicker = () => {
     showMode('time');
   };
-
-  const dateToDisplay = date.toLocaleString('fr-FR').slice(0, 10);
 
   return (
     <View>

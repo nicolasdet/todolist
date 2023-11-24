@@ -32,6 +32,7 @@ function TodoReducer(state: Todo[], action: Action) {
         {
           title: action.payload.title,
           content: action.payload.content,
+          date: action.payload.date,
           id: id,
         },
         ...state,
@@ -41,9 +42,7 @@ function TodoReducer(state: Todo[], action: Action) {
         (todo) => todo.id === action.payload.id
       );
       const updatableTodo = state[updatableTodoIndex];
-      console.log(action.payload);
       const updatedItem = { ...updatableTodo, ...action.payload };
-      console.log(updatedItem);
       const updatedTodos = [...state];
       updatedTodos[updatableTodoIndex] = updatedItem;
       return updatedTodos;
@@ -65,7 +64,11 @@ const TodoContextProvider = ({ children }) => {
     dispatch({ type: ActionType.DELETE, payload: id });
   };
 
-  const updateTodo = (todoData: { title: string; content: string }) => {
+  const updateTodo = (todoData: {
+    title: string;
+    content: string;
+    date: string;
+  }) => {
     dispatch({ type: ActionType.UPDATE, payload: todoData });
   };
 
