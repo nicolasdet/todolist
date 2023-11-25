@@ -31,6 +31,7 @@ Project created with expo
 ## refactor
 
 - [ ] inprouve type for todo-context / remove partials types
+- [ ] Profile performance and useMemo / React.memo
 
 ## Todo List Features
 
@@ -41,15 +42,13 @@ Project created with expo
 - [x] Add text element to task
 - [x] Add date element to task
 - [x] Add time element to task
-- [ ] Add image element to task
-- [ ] Select different color for task
-- [ ] Add notifiable to task
-- [ ] swipe to delete
 - [ ] Filter task by date
+- [ ] Select different color for task
+- [ ] swipe to delete
+- [ ] Add notifiable to task
+- [ ] Add image element to task
 - [ ] Add task order & drag and drop
-
-// Need register
-
+      // Need register
 - [ ] Add Favorite task
 - [ ] Asign people to task ?
 
