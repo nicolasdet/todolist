@@ -42,10 +42,10 @@ Project created with expo
 - [x] Add text element to task
 - [x] Add date element to task
 - [x] Add time element to task
+- [ ] Add notifiable to task
 - [ ] Filter task by date
 - [ ] Select different color for task
 - [ ] swipe to delete
-- [ ] Add notifiable to task
 - [ ] Add image element to task
 - [ ] Add task order & drag and drop
       // Need register

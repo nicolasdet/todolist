@@ -26,6 +26,12 @@ const TodoCard = (item: Todo) => {
           id: id,
         });
       }}
+      onLongPress={() => {
+        navigation.navigate('TodoConfigScreen', {
+          todo: item,
+          id: id,
+        });
+      }}
       style={({ pressed }) =>
         pressed ? [styles.container, { opacity: 0.5 }] : styles.container
       }

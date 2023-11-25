@@ -1,10 +1,11 @@
-import { createNativeStackNavigator, NativeStackScreenProps  } from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { RootStackParamList } from './NavigationTypes';
 // Routes
 import Home from '../../screens/Home';
 import TodoScreen from '../../screens/TodoScreen';
 import AddScreen from '../../screens/AddScreen';
+import TodoConfigScreen from '../../screens/TodoConfigScreen';
 // Meteo app
 import MeteoHome from '../../screens/MeteoHome';
 // Icons
@@ -18,8 +19,6 @@ const RootNavigation = createBottomTabNavigator();
 const TodoStack = createNativeStackNavigator<RootStackParamList>();
 const MeteoStack = createNativeStackNavigator();
 
-
-
 const TodoNavigator = (): React.JSX.Element => {
   return (
     <TodoStack.Navigator screenOptions={{ headerShown: false }}>
@@ -29,6 +28,13 @@ const TodoNavigator = (): React.JSX.Element => {
         name="AddScreen"
         component={AddScreen}
         options={{ presentation: 'modal' }}
+      />
+      <TodoStack.Screen
+        name="TodoConfigScreen"
+        component={TodoConfigScreen}
+        options={{
+          presentation: 'modal',
+        }}
       />
     </TodoStack.Navigator>
   );
@@ -44,22 +50,26 @@ const MeteoNavigator = (): React.JSX.Element => {
 
 const RootNavigator = (): React.JSX.Element => {
   return (
-    <RootNavigation.Navigator screenOptions={{ 
-		headerShown: false,  
-		tabBarStyle: { height: isTablet ? 60 : 90 },
-		tabBarActiveBackgroundColor: Color.material, 
-		tabBarInactiveBackgroundColor: Color.material,
-		tabBarLabelStyle: {
-			fontSize: 20,
-			paddingBottom: 1
-		},
-		tabBarActiveTintColor: Color.darkBlue,
- }}>
+    <RootNavigation.Navigator
+      screenOptions={{
+        headerShown: false,
+        tabBarStyle: { height: isTablet ? 60 : 90 },
+        tabBarActiveBackgroundColor: Color.material,
+        tabBarInactiveBackgroundColor: Color.material,
+        tabBarLabelStyle: {
+          fontSize: 20,
+          paddingBottom: 1,
+        },
+        tabBarActiveTintColor: Color.darkBlue,
+      }}
+    >
       <RootNavigation.Screen
         name="Todo"
         component={TodoNavigator}
         options={{
-          tabBarIcon: () => <FontAwesome name="list" size={24} color={Color.darkBlue} />,
+          tabBarIcon: () => (
+            <FontAwesome name="list" size={24} color={Color.darkBlue} />
+          ),
         }}
       />
       <RootNavigation.Screen
