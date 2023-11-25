@@ -1,4 +1,6 @@
-import { View, StyleSheet, Text, Pressable } from 'react-native';
+import { StyleSheet, Text, Pressable } from 'react-native';
+import Color from '../../utils/colors';
+import { BasicShadow } from '../../utils/shadow';
 
 interface TodoFilterElementInterface {
   label: string;
@@ -18,9 +20,13 @@ export default TodoFilterElement;
 const styles = StyleSheet.create({
   container: {
     marginBottom: 10,
+    backgroundColor: Color.material,
+    padding: 10,
+    borderRadius: 5,
+    ...BasicShadow,
   },
   text: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
   },
 });
