@@ -4,7 +4,6 @@ import { RootStackNavigationProp } from '../navigation/NavigationTypes';
 import { useNavigation } from '@react-navigation/native';
 import { TodoContext } from '../../store/todo/todo-context';
 import { Todo } from '../../store/todo/todo-context';
-import RemoveCard from './RemoveCard';
 import DateElement from './DateElement';
 import TitleElement from './TitleElement';
 import ContentElement from './ContentElement';
@@ -55,6 +54,7 @@ const styles = StyleSheet.create({
     borderColor: color.darkBlue,
     margin: 10,
     padding: 10,
+    paddingBottom: 20,
     backgroundColor: color.grey,
     ...BasicShadow,
   },

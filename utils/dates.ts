@@ -12,3 +12,19 @@ export const mois = {
   11: 'novembre',
   12: 'decembre',
 };
+
+export const SortObjByDate = (obj: any, mode = 'desc') => {
+  const sortDate = (obj1, obj2) => {
+    const date1 = new Date(obj1.date);
+    const date2 = new Date(obj2.date);
+
+    if (date1 < date2) {
+      return mode === 'asc' ? -1 : 1;
+    } else if (date1 > date2) {
+      return mode === 'asc' ? 1 : -1;
+    } else {
+      return 0;
+    }
+  };
+  return obj.sort(sortDate);
+};

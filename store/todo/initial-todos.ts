@@ -35,4 +35,11 @@ export const INITIAL_STATE = [
     date: '2023-02-01',
     createdAt: '2022-03-01',
   },
+  {
+    id: '6',
+    title: 'Todo 6',
+    content: 'Todo 6 content',
+    date: '2023-02-01',
+    createdAt: '2022-03-01',
+  },
 ];

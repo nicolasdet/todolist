@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 const ContentElement = ({ content }: { content: string }) => {
   return (
     <View style={styles.container}>
-      <Text numberOfLines={6} style={styles.text}>
+      <Text numberOfLines={4} style={styles.text}>
         {content}
       </Text>
     </View>
