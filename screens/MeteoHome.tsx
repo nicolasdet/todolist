@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ImageBackground } from 'react-native';
 import AdressSearch from '../components/AdressSearch/AdressSearch';
 import MeteoDisplay from '../components/MeteoDisplay/MeteoDisplay';
 import { Geocoding } from '../API/Geocoding';
@@ -26,10 +26,16 @@ const MeteoHome = (): React.JSX.Element => {
   };
 
   return (
-    <View style={styles.container}>
-      <AdressSearch onSearch={onSearchAdress} />
-      <MeteoDisplay MeteoData={MeteoData} />
-    </View>
+    <ImageBackground
+      source={require('../assets/beach.jpg')}
+      resizeMode="cover"
+      style={styles.image}
+    >
+      <View style={styles.container}>
+        <AdressSearch onSearch={onSearchAdress} />
+        <MeteoDisplay MeteoData={MeteoData} />
+      </View>
+    </ImageBackground>
   );
 };
 
@@ -40,5 +46,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  image: {
+    flex: 1,
+    width: '100%',
   },
 });
