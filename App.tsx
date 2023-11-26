@@ -1,3 +1,4 @@
+import { StrictMode } from 'react';
 import { StyleSheet, SafeAreaView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
@@ -6,16 +7,14 @@ import TodoContextProvider from './store/todo/todo-context';
 
 export default function App(): JSX.Element {
   return (
-    <>
-      {/* <SafeAreaView style={styles.container}> */}
-        <StatusBar style="auto" />
-        <TodoContextProvider>
-          <NavigationContainer>
-            <RootNavigator />
-          </NavigationContainer>
-        </TodoContextProvider>
-      {/* </SafeAreaView> */}
-    </>
+    <StrictMode>
+      <StatusBar style="auto" />
+      <TodoContextProvider>
+        <NavigationContainer>
+          <RootNavigator />
+        </NavigationContainer>
+      </TodoContextProvider>
+    </StrictMode>
   );
 }
 const styles = StyleSheet.create({

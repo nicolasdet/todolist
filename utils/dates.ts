@@ -28,3 +28,13 @@ export const SortObjByDate = (obj: any, mode = 'desc') => {
   };
   return obj.sort(sortDate);
 };
+
+const daysInMonth = (month, year) => {
+  return new Date(year, month, 0).getDate();
+};
+
+export const daysInCurrentMonth = () => {
+  const year = new Date().getFullYear();
+  const month = new Date().getMonth() + 1;
+  return daysInMonth(month, year);
+};
