@@ -6,6 +6,7 @@ import GetDaysFromMonth from './GetDaysFromMonth';
 
 const DayMenu = ({ selectedDay, setSelectedDay }) => {
   const ActualMonthDayNumber = daysInCurrentMonth();
+  const todayDayNum = new Date().getUTCDate();
   const ELToReturn = [];
   const getElement = (index: number, all = false, selected = false) => {
     return (
@@ -18,9 +19,9 @@ const DayMenu = ({ selectedDay, setSelectedDay }) => {
       />
     );
   };
-  for (let i = 0; i < ActualMonthDayNumber; i++) {
-    if (i === 0) {
-      ELToReturn.push(getElement(i, true, selectedDay === 0));
+  for (let i = todayDayNum - 1; i < ActualMonthDayNumber; i++) {
+    if (i === todayDayNum - 1) {
+      ELToReturn.push(getElement(0, true, selectedDay === 0));
     } else {
       ELToReturn.push(getElement(i, false, selectedDay === i));
     }
