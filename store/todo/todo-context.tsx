@@ -1,6 +1,7 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useReducer, useEffect } from 'react';
 import { INITIAL_STATE } from './initial-todos';
 import { Action, ActionType } from './Actions';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export interface Todo {
   id: string;
@@ -26,6 +27,8 @@ export const TodoContext = createContext<TodoContextType>({
 
 function TodoReducer(state: Todo[], action: Action) {
   switch (action.type) {
+    case ActionType.FETCH:
+      return [...action.payload];
     case ActionType.ADD:
       const id = new Date().toString() + Math.random().toString();
       return [
@@ -55,6 +58,48 @@ function TodoReducer(state: Todo[], action: Action) {
 
 const TodoContextProvider = ({ children }) => {
   const [todosState, dispatch] = useReducer(TodoReducer, INITIAL_STATE);
+
+  //   useEffect(() => {
+  //     getData().then((data) => {
+  //       if (data) {
+  //         // delay
+  //         setTimeout(() => {
+  //           dispatch({ type: ActionType.FETCH, payload: data });
+  //         }, 1000);
+  //       }
+  //     });
+  //   }, []);
+
+  // A chaque nouvel value on l'enregistre
+  // Probleme : Lors que l'on fetch les data pour la premiere fois.
+  // Une fois réhydraté on passe ici et on sauvegarde les data tout juste récupéréer..
+  //   useEffect(() => {
+  //     if (todosState.length > 0) {
+  //       saveData(todosState);
+  //     }
+  //   }, [todosState]);
+
+  //   const saveData = async (data: Todo[]) => {
+  //     try {
+  //       const jsonValue = JSON.stringify(todosState);
+  //       AsyncStorage.setItem('todosState', jsonValue);
+  //       console.log('sauvegarde des Todos');
+  //     } catch (e) {
+  //       // saving error
+  //       alert("Une erreur est survenue lors de l'enregistrement des données");
+  //     }
+  //   };
+
+  const getData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('todosState');
+      if (value !== null) {
+        return JSON.parse(value);
+      }
+    } catch (e) {
+      alert('Une erreur est survenue lors du chargement des données');
+    }
+  };
 
   const addTodo = (todoData: { title: string; content?: string }) => {
     dispatch({ type: ActionType.ADD, payload: todoData });

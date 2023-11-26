@@ -4,6 +4,7 @@ export enum ActionType {
   ADD = 'ADD',
   UPDATE = 'UPDATE',
   DELETE = 'DELETE',
+  FETCH = 'FETCH',
 }
 
 interface addTodoAction {
@@ -21,4 +22,13 @@ interface deleteAction {
   payload: string;
 }
 
-export type Action = addTodoAction | updateTodoAction | deleteAction;
+interface fetchAction {
+  type: ActionType.FETCH;
+  payload: Todo[];
+}
+
+export type Action =
+  | addTodoAction
+  | updateTodoAction
+  | deleteAction
+  | fetchAction;
