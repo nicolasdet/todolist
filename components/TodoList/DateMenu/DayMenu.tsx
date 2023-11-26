@@ -1,23 +1,28 @@
-import { useEffect } from 'react';
 import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import { daysInCurrentMonth } from '../../../utils/dates';
 import { BasicShadow } from '../../../utils/shadow';
 import Color from '../../../utils/colors';
 import GetDaysFromMonth from './GetDaysFromMonth';
 
-const DayMenu = () => {
+const DayMenu = ({ selectedDay, setSelectedDay }) => {
   const ActualMonthDayNumber = daysInCurrentMonth();
   const ELToReturn = [];
   const getElement = (index: number, all = false, selected = false) => {
     return (
-      <GetDaysFromMonth key={index} day={index} all={all} selected={selected} />
+      <GetDaysFromMonth
+        key={index}
+        day={index}
+        all={all}
+        selected={selected}
+        onPress={() => setSelectedDay(index)}
+      />
     );
   };
   for (let i = 0; i < ActualMonthDayNumber; i++) {
     if (i === 0) {
-      ELToReturn.push(getElement(i, true, true));
+      ELToReturn.push(getElement(i, true, selectedDay === 0));
     } else {
-      ELToReturn.push(getElement(i, false, false));
+      ELToReturn.push(getElement(i, false, selectedDay === i));
     }
   }
 

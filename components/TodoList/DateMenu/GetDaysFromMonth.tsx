@@ -5,21 +5,24 @@ const GetDaysFromMonth = ({
   day,
   all,
   selected,
+  onPress,
 }: {
   day: number;
   all: boolean;
   selected: boolean;
+  onPress: () => void;
 }) => {
   return (
     <Pressable
       style={({ pressed }) => {
         let displayStyle = [styles.container];
-        selected && displayStyle.push({ backgroundColor: 'pink' });
-        pressed && displayStyle.push({ opacity: 0.5 });
-        return displayStyle;
+        let optionnalStyle = [];
+        selected && optionnalStyle.push(styles.selected);
+        pressed && optionnalStyle.push(styles.pressed);
+        return [displayStyle, optionnalStyle];
       }}
       onPress={() => {
-        console.log('press');
+        onPress();
       }}
     >
       <Text style={styles.text}>{all ? 'Tous' : day}</Text>
@@ -43,5 +46,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     color: 'black',
+  },
+  selected: {
+    backgroundColor: 'pink',
+  },
+  pressed: {
+    opacity: 0.5,
   },
 });
