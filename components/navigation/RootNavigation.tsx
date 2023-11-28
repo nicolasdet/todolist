@@ -51,6 +51,7 @@ const MeteoNavigator = (): React.JSX.Element => {
 const RootNavigator = (): React.JSX.Element => {
   return (
     <RootNavigation.Navigator
+      initialRouteName="Meteo"
       screenOptions={{
         headerShown: false,
         tabBarStyle: { height: isTablet ? 60 : 90 },
@@ -70,6 +71,7 @@ const RootNavigator = (): React.JSX.Element => {
           tabBarIcon: () => (
             <FontAwesome name="list" size={24} color={Color.darkBlue} />
           ),
+          lazy: false,
         }}
       />
       <RootNavigation.Screen

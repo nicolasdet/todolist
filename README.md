@@ -32,6 +32,7 @@ Project created with expo
 
 - [ ] inprouve type for todo-context / remove partials types
 - [ ] Profile performance and useMemo / React.memo
+- [ ] improve perf loading of Todo screen (list loading take long time)
 
 ## Todo List Features
 

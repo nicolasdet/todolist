@@ -7,6 +7,8 @@ import { Meteo } from '../API/Meteo';
 
 const MeteoHome = (): React.JSX.Element => {
   const [MeteoData, setMeteoData] = useState();
+
+  // extraire la fonction
   const onSearchAdress = async (Adress: string) => {
     // On Geocode l'adresse et on récupère les coordonnées
     const GeocodeResult = await Geocoding(Adress);
@@ -15,7 +17,6 @@ const MeteoHome = (): React.JSX.Element => {
       const { lat, lon } = GeocodeResult.data[0];
       const MeteoResult = await Meteo(lat, lon);
       if (MeteoResult.success) {
-        console.log(MeteoResult.data);
         return setMeteoData(MeteoResult.data);
       }
       // Gestion des erreur API
