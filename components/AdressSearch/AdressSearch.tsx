@@ -21,7 +21,14 @@ const AdressSearch = ({ onSearch }) => {
         style={styles.rowInput}
         label="Entrez une adresse"
       />
-      <Pressable onPress={submit}>
+      <Pressable
+        onPress={submit}
+        style={({ pressed }) =>
+          pressed
+            ? [styles.SearchButton, { opacity: 0.5 }]
+            : styles.SearchButton
+        }
+      >
         <Text>Rechercher</Text>
       </Pressable>
     </View>
@@ -32,6 +39,7 @@ export default AdressSearch;
 
 const styles = StyleSheet.create({
   container: {
+    fex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     width: isTablet ? '60%' : '80%',
@@ -42,5 +50,12 @@ const styles = StyleSheet.create({
   },
   rowInput: {
     width: '100%',
+  },
+  SearchButton: {
+    borderColor: Color.darkBlue,
+    borderWidth: 1,
+    padding: 10,
+    marginTop: 15,
+    borderRadius: 4,
   },
 });

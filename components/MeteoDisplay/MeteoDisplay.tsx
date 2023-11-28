@@ -21,10 +21,11 @@ export default MeteoDisplay;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 4,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
-    marginTop: 30,
+    marginVertical: 30,
     padding: 20,
     borderRadius: 10,
     ...BasicShadow,
