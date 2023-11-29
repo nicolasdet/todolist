@@ -43,7 +43,8 @@ Project created with expo
 - [x] Add text element to task
 - [x] Add date element to task
 - [x] Add time element to task
-- [ ] Filter task by date
+- [x] Filter task by date
+- [ ] update the date selector so we can select month and year ?
 - [ ] Select different color for task
 - [ ] swipe to delete
 - [ ] Add image element to task
@@ -55,12 +56,14 @@ Project created with expo
 
 ## Meteo App Features
 
-- [ ] Enter an adress to get the weather (Work in progress)
+- [x] Enter an adress to get the weather
 - [ ] Get the weather forecast (Work in progress)
+- [ ] Define meteoData interface from API
 - [ ] Get some favorite places
 
 ## Global Features
 
+- [ ] internet status
 - [ ] onBoarding Screen with persistant storage
 - [ ] Login Screen
 - [ ] Register Screen

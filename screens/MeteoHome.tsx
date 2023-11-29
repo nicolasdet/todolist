@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { MeteoDataContext } from '../store/meteo/MeteoData';
 import { View, StyleSheet, ImageBackground } from 'react-native';
 import AdressSearch from '../components/AdressSearch/AdressSearch';
 import MeteoDisplay from '../components/MeteoDisplay/MeteoDisplay';

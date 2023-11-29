@@ -1,6 +1,12 @@
 import { View, Text, StyleSheet } from 'react-native';
 
-const MeteoElement = ({ label, value }: { label: string; value: string }) => {
+const MeteoElement = ({
+  label,
+  value,
+}: {
+  label: string;
+  value: string | string[];
+}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.label}>{label}</Text>

@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     backgroundColor: Color.material,
     borderRadius: 10,
     padding: 20,
-    marginTop: 40,
+    marginTop: 50,
   },
   rowInput: {
     width: '100%',
