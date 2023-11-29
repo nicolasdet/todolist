@@ -46,6 +46,5 @@ const styles = StyleSheet.create({
   },
   todoListContainer: {
     flex: isTablet ? 3 : 5,
-    margin: 10,
   },
 });

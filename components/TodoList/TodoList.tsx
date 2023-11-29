@@ -1,15 +1,19 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useMemo } from 'react';
 import { View, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
 import TodoCard from './TodoCard/TodoCard';
 import { TodoContext, Todo } from '../../store/todo/todo-context';
 import { isTablet } from '../../utils/deviceInfo';
 import { SortObjByDate } from '../../utils/dates';
-import DayMenu from './DateMenu/DayMenu';
+import DayMenu from './Menu/DayMenu';
+import LabelMenu from './Menu/LabelMenu';
 
 const TodoList = () => {
   const todoCtx = useContext(TodoContext);
   const [selectedDay, setSelectedDay] = useState(0);
-  const filterdTodosByDate = SortObjByDate([...todoCtx.todos]);
+  const filterdTodosByDate = useMemo(
+    () => SortObjByDate([...todoCtx.todos]),
+    [todoCtx.todos]
+  );
 
   const GetTodosByDate = (): Todo[] => {
     if (selectedDay === 0) {
@@ -25,9 +29,9 @@ const TodoList = () => {
 
   return (
     <View style={styles.container}>
-      <View>
+      <View style={styles.Menu}>
         <DayMenu selectedDay={selectedDay} setSelectedDay={setSelectedDay} />
-        {/* <LabelMenu /> */}
+        <LabelMenu />
       </View>
       {todoCtx.todos.length === 0 ? (
         <ActivityIndicator size="large" />
@@ -37,6 +41,7 @@ const TodoList = () => {
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => <TodoCard {...item} />}
           numColumns={isTablet ? 2 : 1}
+          contentContainerStyle={styles.FlatListContainer}
         />
       )}
     </View>
@@ -52,5 +57,9 @@ const styles = StyleSheet.create({
   },
   Menu: {
     flexDirection: 'row',
+    marginHorizontal: isTablet ? 10 : 0,
+  },
+  FlatListContainer: {
+    marginHorizontal: 10,
   },
 });

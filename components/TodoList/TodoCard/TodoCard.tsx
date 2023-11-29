@@ -9,6 +9,7 @@ import TitleElement from './TitleElement';
 import ContentElement from './ContentElement';
 import color from '../../../utils/colors';
 import { BasicShadow } from '../../../utils/shadow';
+import { isTablet } from '../../../utils/deviceInfo';
 
 const TodoCard = (item: Todo) => {
   const { title, id, content, date } = item;
@@ -55,7 +56,8 @@ export default TodoCard;
 
 const styles = StyleSheet.create({
   container: {
-    width: 300,
+    width: isTablet ? 500 : 300,
+    height: 150,
     borderWidth: 0.1,
     borderColor: color.darkBlue,
     margin: 10,

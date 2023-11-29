@@ -3,6 +3,7 @@ import { daysInCurrentMonth } from '../../../utils/dates';
 import { BasicShadow } from '../../../utils/shadow';
 import Color from '../../../utils/colors';
 import GetDaysFromMonth from './GetDaysFromMonth';
+import { isTablet } from '../../../utils/deviceInfo';
 
 const DayMenu = ({ selectedDay, setSelectedDay }) => {
   const ActualMonthDayNumber = daysInCurrentMonth();
@@ -42,12 +43,11 @@ export default DayMenu;
 
 const styles = StyleSheet.create({
   container: {
-    width: '70%',
+    width: isTablet ? '70%' : '65%',
     height: 50,
     margin: 5,
     paddingHorizontal: 15,
     borderRadius: 4,
-    backgroundColor: Color.material,
     ...BasicShadow,
   },
 });
