@@ -1,6 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { RootStackParamList } from './NavigationTypes';
+
+// Nos contexts
 import PersistMeteoContextProvider from '../../store/Persist/PersistMeteoContext';
 // Routes
 import Home from '../../screens/TodoHome';

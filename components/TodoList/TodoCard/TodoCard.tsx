@@ -10,14 +10,19 @@ import ContentElement from './ContentElement';
 import color from '../../../utils/colors';
 import { BasicShadow } from '../../../utils/shadow';
 import { isTablet } from '../../../utils/deviceInfo';
+import LabelsElements from './LabelsElements';
+
+/*
+
+Todo contient un tableau de labels sous format string mais ça devrait etre un tableau de type Label 
+faut faire du sql à nouveau hein 
+il est temps de crée le back office 
+
+*/
 
 const TodoCard = (item: Todo) => {
   const { title, id, content, date } = item;
-  const todoCtx = useContext(TodoContext);
   const navigation = useNavigation<RootStackNavigationProp>();
-  const onRemove = () => {
-    todoCtx.deleteTodo(id);
-  };
 
   return (
     <Pressable
@@ -43,10 +48,8 @@ const TodoCard = (item: Todo) => {
           <DateElement date={date} />
         </View>
         <ContentElement content={content} />
-      </View>
 
-      <View style={styles.removeContainer}>
-        {/* <RemoveCard onRemove={onRemove} /> */}
+        <LabelsElements labels={item.labels} />
       </View>
     </Pressable>
   );
@@ -62,8 +65,8 @@ const styles = StyleSheet.create({
     borderColor: color.darkBlue,
     margin: 10,
     padding: 10,
-    paddingBottom: 20,
     backgroundColor: color.grey,
+    zIndex: 1,
     ...BasicShadow,
   },
   CardHeader: {

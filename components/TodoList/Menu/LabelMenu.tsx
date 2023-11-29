@@ -1,9 +1,17 @@
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { useState } from 'react';
+import { Text, StyleSheet, Pressable } from 'react-native';
+import LabelFilterModal from './LabelFilterModal';
 import { BasicShadow } from '../../../utils/shadow';
 export const LabelMenu = () => {
+  const [filterOpen, setfilterOpen] = useState(false);
+
   return (
-    <Pressable style={styles.container}>
-      <Text style={styles.text}>filtrer</Text>
+    <Pressable
+      style={styles.container}
+      onPress={() => setfilterOpen(!filterOpen)}
+    >
+      {!filterOpen && <Text style={styles.text}>filtrer</Text>}
+      {filterOpen && <LabelFilterModal />}
     </Pressable>
   );
 };

@@ -9,7 +9,7 @@ export interface Todo {
   content?: string;
   createdAt?: string;
   date?: string;
-  label?: String[];
+  labels?: String[];
 }
 
 interface TodoContextType {

@@ -6,12 +6,12 @@ import RootNavigator from './components/navigation/RootNavigation';
 
 export default function App(): JSX.Element {
   return (
-    <StrictMode>
+    <>
       <StatusBar style="auto" />
       <NavigationContainer>
         <RootNavigator />
       </NavigationContainer>
-    </StrictMode>
+    </>
   );
 }
 const styles = StyleSheet.create({

@@ -58,8 +58,10 @@ const styles = StyleSheet.create({
   Menu: {
     flexDirection: 'row',
     marginHorizontal: isTablet ? 10 : 0,
+    zIndex: 1,
   },
   FlatListContainer: {
     marginHorizontal: 10,
+    zIndex: 1,
   },
 });
