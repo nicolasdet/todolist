@@ -57,7 +57,8 @@ Project created with expo
 ## Meteo App Features
 
 - [x] Enter an adress to get the weather
-- [ ] Get the weather forecast (Work in progress)
+- [x] Get the weather forecast
+- [ ] show hourly forecast
 - [ ] Define meteoData interface from API
 - [ ] Get some favorite places
 
