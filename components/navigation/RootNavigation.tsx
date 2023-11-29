@@ -12,6 +12,8 @@ import MeteoHome from '../../screens/MeteoHome';
 // Icons
 import { FontAwesome } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 
 import Color from '../../utils/colors';
 import { isTablet } from '../../utils/deviceInfo';
@@ -72,7 +74,7 @@ const RootNavigator = (): React.JSX.Element => {
         component={TodoNavigator}
         options={{
           tabBarIcon: () => (
-            <FontAwesome name="list" size={24} color={Color.darkBlue} />
+            <FontAwesome5 name="clipboard-list" size={24} color="black" />
           ),
           lazy: true,
         }}
@@ -84,6 +86,14 @@ const RootNavigator = (): React.JSX.Element => {
           tabBarIcon: () => (
             <Ionicons name="partly-sunny-sharp" size={24} color="black" />
           ),
+        }}
+      />
+      <RootNavigation.Screen
+        name="User"
+        component={MeteoNavigator}
+        options={{
+          tabBarLabel: 'Mon compte',
+          tabBarIcon: () => <FontAwesome name="user" size={24} color="black" />,
         }}
       />
     </RootNavigation.Navigator>
