@@ -18,7 +18,6 @@ export const Meteo = async (lat: string, long: string) => {
 };
 
 export const DailyFormat = (data: any) => {
-  console.log(data);
   const Daily = [];
   // ça devrait plutot etre une constante globale :  utilisé dans le call API
   const PredictionLenght = data.daily.time.length;

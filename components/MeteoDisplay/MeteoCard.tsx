@@ -24,7 +24,7 @@ const MeteoCard = ({
   const { weathercode, temperature, windspeed } = MeteoData;
   return (
     <View style={styles.container}>
-      <Text>{label}</Text>
+      <Text style={styles.title}>{label}</Text>
       <MeteoWeatherElement code={weathercode} />
       <MeteoElement label="temperature" value={temperature} />
       <MeteoElement label="Vent" value={`${windspeed} Km/h`} />
@@ -36,7 +36,7 @@ export default MeteoCard;
 
 const styles = StyleSheet.create({
   container: {
-    width: isTablet ? 300 : 200,
+    width: isTablet ? 300 : 250,
     alignItems: 'center',
     backgroundColor: 'white',
     marginVertical: 30,
@@ -44,5 +44,10 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 10,
     ...BasicShadow,
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
 });

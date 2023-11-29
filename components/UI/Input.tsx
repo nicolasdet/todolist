@@ -1,21 +1,22 @@
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-  StyleProp,
-  ViewStyle,
-} from 'react-native';
+import { StyleSheet, Text, TextInput, View, ViewStyle } from 'react-native';
 import colors from '../../utils/colors';
+import { Ionicons } from '@expo/vector-icons';
 
 interface IputInterface {
   label: string;
   invalid?: boolean;
   style?: any;
   textInputConfig?: any;
+  onRemoveText?: () => void;
 }
 
-const Input = ({ label, invalid, style, textInputConfig }: IputInterface) => {
+const Input = ({
+  label,
+  invalid,
+  style,
+  textInputConfig,
+  onRemoveText,
+}: IputInterface) => {
   const inputStyles: ViewStyle[] = [styles.input];
 
   if (textInputConfig && textInputConfig.multiline) {
@@ -27,11 +28,22 @@ const Input = ({ label, invalid, style, textInputConfig }: IputInterface) => {
   }
 
   return (
-    <View style={[styles.inputContainer, style]}>
+    <View style={[styles.container, style]}>
       <Text style={[styles.label, invalid && styles.invalidLabel]}>
         {label}
       </Text>
-      <TextInput style={inputStyles} {...textInputConfig} />
+      <View style={styles.inputContainer}>
+        <TextInput style={inputStyles} {...textInputConfig} />
+        {onRemoveText && (
+          <Ionicons
+            style={styles.inputIcon}
+            onPress={onRemoveText}
+            name="close-sharp"
+            size={24}
+            color="black"
+          />
+        )}
+      </View>
     </View>
   );
 };
@@ -39,7 +51,7 @@ const Input = ({ label, invalid, style, textInputConfig }: IputInterface) => {
 export default Input;
 
 const styles = StyleSheet.create({
-  inputContainer: {
+  container: {
     marginHorizontal: 4,
   },
   label: {
@@ -54,6 +66,13 @@ const styles = StyleSheet.create({
     padding: 6,
     borderRadius: 6,
     fontSize: 18,
+    width: '100%',
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   inputMultiline: {
     minHeight: 100,
@@ -61,6 +80,10 @@ const styles = StyleSheet.create({
   },
   invalidLabel: {
     color: colors.red,
+  },
+  inputIcon: {
+    position: 'absolute',
+    right: 10,
   },
   invalidInput: {
     backgroundColor: colors.red,

@@ -3,6 +3,7 @@ import { View, StyleSheet, Pressable, Text } from 'react-native';
 import Input from '../UI/Input';
 import { isTablet } from '../../utils/deviceInfo';
 import Color from '../../utils/colors';
+import { Ionicons } from '@expo/vector-icons';
 
 const AdressSearch = ({ onSearch }) => {
   const [Adress, setAdress] = useState('233 boulevard saint denis');
@@ -20,6 +21,7 @@ const AdressSearch = ({ onSearch }) => {
         }}
         style={styles.rowInput}
         label="Entrez une adresse"
+        onRemoveText={() => setAdress('')}
       />
       <Pressable
         onPress={submit}
@@ -43,10 +45,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: isTablet ? '60%' : '80%',
-    backgroundColor: Color.material,
+    backgroundColor: Color.lightBlue,
     borderRadius: 10,
     padding: 20,
     marginTop: 50,
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   rowInput: {
     width: '100%',

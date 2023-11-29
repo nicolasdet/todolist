@@ -71,7 +71,7 @@ const RootNavigator = (): React.JSX.Element => {
           tabBarIcon: () => (
             <FontAwesome name="list" size={24} color={Color.darkBlue} />
           ),
-          lazy: false,
+          lazy: true,
         }}
       />
       <RootNavigation.Screen

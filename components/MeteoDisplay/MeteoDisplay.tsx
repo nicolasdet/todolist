@@ -1,8 +1,4 @@
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { BasicShadow } from '../../utils/shadow';
-import MeteoElement from './MeteoElement';
-import MeteoWeatherElement from './MeteoWeatherElement';
-import { isTablet } from '../../utils/deviceInfo';
 import MeteoCard from './MeteoCard';
 
 // Todo define MeteoData interface
@@ -10,14 +6,6 @@ interface MeteoDisplayInterface {
   MeteoData: any;
 }
 
-/*
-{
-	Maintenant: 
-	Aujourdhui: 
-	Demain: 
-	ApresDemain
-}
-*/
 const MeteoDisplay = ({ MeteoData }: MeteoDisplayInterface) => {
   console.log(MeteoData);
   return (
@@ -35,7 +23,11 @@ const MeteoDisplay = ({ MeteoData }: MeteoDisplayInterface) => {
           ))}
         </ScrollView>
       ) : (
-        <Text>Entrez une adresse pour obtenir la méteo</Text>
+        <View style={styles.noMeteoTextContainer}>
+          <Text style={styles.noMeteoText}>
+            Entrez une adresse pour obtenir la méteo
+          </Text>
+        </View>
       )}
     </View>
   );
@@ -48,5 +40,15 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     paddingHorizontal: 20,
+  },
+  noMeteoTextContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  noMeteoText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'white',
   },
 });
