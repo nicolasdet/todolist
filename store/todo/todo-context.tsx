@@ -9,6 +9,7 @@ export interface Todo {
   content?: string;
   createdAt?: string;
   date?: string;
+  label?: String[];
 }
 
 interface TodoContextType {
@@ -58,37 +59,6 @@ function TodoReducer(state: Todo[], action: Action) {
 
 const TodoContextProvider = ({ children }) => {
   const [todosState, dispatch] = useReducer(TodoReducer, INITIAL_STATE);
-
-  //   useEffect(() => {
-  //     getData().then((data) => {
-  //       if (data) {
-  //         // delay
-  //         setTimeout(() => {
-  //           dispatch({ type: ActionType.FETCH, payload: data });
-  //         }, 1000);
-  //       }
-  //     });
-  //   }, []);
-
-  // A chaque nouvel value on l'enregistre
-  // Probleme : Lors que l'on fetch les data pour la premiere fois.
-  // Une fois réhydraté on passe ici et on sauvegarde les data tout juste récupéréer..
-  //   useEffect(() => {
-  //     if (todosState.length > 0) {
-  //       saveData(todosState);
-  //     }
-  //   }, [todosState]);
-
-  //   const saveData = async (data: Todo[]) => {
-  //     try {
-  //       const jsonValue = JSON.stringify(todosState);
-  //       AsyncStorage.setItem('todosState', jsonValue);
-  //       console.log('sauvegarde des Todos');
-  //     } catch (e) {
-  //       // saving error
-  //       alert("Une erreur est survenue lors de l'enregistrement des données");
-  //     }
-  //   };
 
   const getData = async () => {
     try {

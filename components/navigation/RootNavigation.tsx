@@ -56,7 +56,7 @@ const MeteoNavigator = (): React.JSX.Element => {
 const RootNavigator = (): React.JSX.Element => {
   return (
     <RootNavigation.Navigator
-      initialRouteName="Meteo"
+      initialRouteName="Todo"
       screenOptions={{
         headerShown: false,
         tabBarStyle: { height: isTablet ? 60 : 90 },

@@ -1,14 +1,14 @@
 import { useContext } from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
-import { RootStackNavigationProp } from '../navigation/NavigationTypes';
+import { RootStackNavigationProp } from '../../navigation/NavigationTypes';
 import { useNavigation } from '@react-navigation/native';
-import { TodoContext } from '../../store/todo/todo-context';
-import { Todo } from '../../store/todo/todo-context';
+import { TodoContext } from '../../../store/todo/todo-context';
+import { Todo } from '../../../store/todo/todo-context';
 import DateElement from './DateElement';
 import TitleElement from './TitleElement';
 import ContentElement from './ContentElement';
-import color from '../../utils/colors';
-import { BasicShadow } from '../../utils/shadow';
+import color from '../../../utils/colors';
+import { BasicShadow } from '../../../utils/shadow';
 
 const TodoCard = (item: Todo) => {
   const { title, id, content, date } = item;

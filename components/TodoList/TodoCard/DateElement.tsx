@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
-import { mois } from '../../utils/dates';
+import { mois } from '../../../utils/dates';
 
 const DateElement = ({ date }: { date: string }) => {
   const DateToDIsplay = new Date(date);

@@ -20,12 +20,12 @@ export default Header;
 
 const styles = StyleSheet.create({
   container: {
-    height: isTablet ? 200 : 100,
+    height: isTablet ? 150 : 100,
+    width: isTablet ? '40%' : '90%',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: isTablet ? 'transparent' : colors.material,
-    margin: isTablet ? 0 : 10,
+    backgroundColor: isTablet ? colors.lightBlue : colors.lightBlue,
     borderRadius: 10,
     opacity: 0.85,
     ...BasicShadow,

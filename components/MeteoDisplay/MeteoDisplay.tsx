@@ -7,7 +7,6 @@ interface MeteoDisplayInterface {
 }
 
 const MeteoDisplay = ({ MeteoData }: MeteoDisplayInterface) => {
-  console.log(MeteoData);
   return (
     <View style={styles.container}>
       {MeteoData ? (

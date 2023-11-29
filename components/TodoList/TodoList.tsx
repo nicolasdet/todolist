@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { View, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
-import TodoCard from './TodoCard';
+import TodoCard from './TodoCard/TodoCard';
 import { TodoContext, Todo } from '../../store/todo/todo-context';
 import { isTablet } from '../../utils/deviceInfo';
 import { SortObjByDate } from '../../utils/dates';
@@ -25,7 +25,10 @@ const TodoList = () => {
 
   return (
     <View style={styles.container}>
-      <DayMenu selectedDay={selectedDay} setSelectedDay={setSelectedDay} />
+      <View>
+        <DayMenu selectedDay={selectedDay} setSelectedDay={setSelectedDay} />
+        {/* <LabelMenu /> */}
+      </View>
       {todoCtx.todos.length === 0 ? (
         <ActivityIndicator size="large" />
       ) : (
@@ -46,5 +49,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 10,
+  },
+  Menu: {
+    flexDirection: 'row',
   },
 });

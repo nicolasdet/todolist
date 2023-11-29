@@ -37,13 +37,15 @@ const styles = StyleSheet.create({
   headerContainer: {
     flex: 1,
     width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   image: {
     flex: 1,
     width: '100%',
   },
   todoListContainer: {
-    flex: 5,
+    flex: isTablet ? 3 : 5,
     margin: 10,
   },
 });
