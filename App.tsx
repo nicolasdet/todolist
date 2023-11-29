@@ -3,17 +3,15 @@ import { StyleSheet, SafeAreaView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import RootNavigator from './components/navigation/RootNavigation';
-import TodoContextProvider from './store/todo/todo-context';
+import PersistContextProvider from './store/Persist/PersistMeteoContext';
 
 export default function App(): JSX.Element {
   return (
     <StrictMode>
       <StatusBar style="auto" />
-      <TodoContextProvider>
-        <NavigationContainer>
-          <RootNavigator />
-        </NavigationContainer>
-      </TodoContextProvider>
+      <NavigationContainer>
+        <RootNavigator />
+      </NavigationContainer>
     </StrictMode>
   );
 }

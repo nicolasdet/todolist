@@ -1,8 +1,9 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { RootStackParamList } from './NavigationTypes';
+import PersistMeteoContextProvider from '../../store/Persist/PersistMeteoContext';
 // Routes
-import Home from '../../screens/Home';
+import Home from '../../screens/TodoHome';
 import TodoScreen from '../../screens/TodoScreen';
 import AddScreen from '../../screens/AddScreen';
 import TodoConfigScreen from '../../screens/TodoConfigScreen';
@@ -42,9 +43,11 @@ const TodoNavigator = (): React.JSX.Element => {
 
 const MeteoNavigator = (): React.JSX.Element => {
   return (
-    <MeteoStack.Navigator screenOptions={{ headerShown: false }}>
-      <MeteoStack.Screen name="MeteoHome" component={MeteoHome} />
-    </MeteoStack.Navigator>
+    <PersistMeteoContextProvider>
+      <MeteoStack.Navigator screenOptions={{ headerShown: false }}>
+        <MeteoStack.Screen name="MeteoHome" component={MeteoHome} />
+      </MeteoStack.Navigator>
+    </PersistMeteoContextProvider>
   );
 };
 

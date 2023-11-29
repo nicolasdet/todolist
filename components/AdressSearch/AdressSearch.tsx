@@ -1,12 +1,19 @@
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { View, StyleSheet, Pressable, Text } from 'react-native';
+import { PersistMeteoContext } from '../../store/Persist/PersistMeteoContext';
 import Input from '../UI/Input';
 import { isTablet } from '../../utils/deviceInfo';
 import Color from '../../utils/colors';
-import { Ionicons } from '@expo/vector-icons';
 
 const AdressSearch = ({ onSearch }) => {
-  const [Adress, setAdress] = useState('233 boulevard saint denis');
+  const PersistAdressCtx = useContext(PersistMeteoContext);
+  const [Adress, setAdress] = useState('');
+
+  useEffect(() => {
+    if (PersistAdressCtx.lastAdress !== '') {
+      setAdress(PersistAdressCtx.lastAdress);
+    }
+  }, [PersistAdressCtx.lastAdress]);
 
   const submit = () => {
     onSearch(Adress);

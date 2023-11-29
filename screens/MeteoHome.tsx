@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { View, StyleSheet, ImageBackground } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { PersistMeteoContext } from '../store/Persist/PersistMeteoContext';
 import AdressSearch from '../components/AdressSearch/AdressSearch';
 import MeteoDisplay from '../components/MeteoDisplay/MeteoDisplay';
 import { Geocoding } from '../API/Geocoding';
@@ -7,6 +9,13 @@ import { Meteo } from '../API/Meteo';
 
 const MeteoHome = (): React.JSX.Element => {
   const [MeteoData, setMeteoData] = useState();
+  const PersistAdressCtx = useContext(PersistMeteoContext);
+
+  useEffect(() => {
+    if (PersistAdressCtx.lastAdress !== '') {
+      onSearchAdress(PersistAdressCtx.lastAdress);
+    }
+  }, [PersistAdressCtx.lastAdress]);
 
   // extraire la fonction
   const onSearchAdress = async (Adress: string) => {
@@ -17,6 +26,7 @@ const MeteoHome = (): React.JSX.Element => {
       const { lat, lon } = GeocodeResult.data[0];
       const MeteoResult = await Meteo(lat, lon);
       if (MeteoResult.success) {
+        AsyncStorage.setItem('meteo-lastAdress', Adress);
         return setMeteoData(MeteoResult.data);
       }
       // Gestion des erreur API

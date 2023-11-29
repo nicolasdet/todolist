@@ -1,4 +1,5 @@
 import { View, StyleSheet, ImageBackground } from 'react-native';
+import TodoContextProvider from '../store/todo/todo-context';
 import Header from '../components/Header/Header';
 import TodoList from '../components/TodoList/TodoList';
 import { isTablet } from '../utils/deviceInfo';
@@ -16,7 +17,9 @@ const Home = (): React.JSX.Element => {
           <Header />
         </View>
         <View style={styles.todoListContainer}>
-          <TodoList />
+          <TodoContextProvider>
+            <TodoList />
+          </TodoContextProvider>
         </View>
         <AddButton />
       </View>
